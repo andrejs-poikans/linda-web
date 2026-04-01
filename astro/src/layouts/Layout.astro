@@ -23,10 +23,13 @@ const defaultLang = "en";
 
     <script>
       const hash = window.location.hash;
+
       if (hash.includes("invite_token") || hash.includes("recovery_token")) {
-        window.location.replace("/admin/" + hash);
+        // Remove any leading '/' from hash
+        const cleanHash = hash.replace(/^#\/?/, "#");
+        window.location.replace("/admin/" + cleanHash);
       } else {
-        window.location.replace("/en/"); // your normal language redirect
+        window.location.replace("/en/"); // your normal redirect
       }
     </script>
   </head>
