@@ -1,0 +1,27 @@
+---
+const { lang, title } = Astro.props;
+
+const name = "Linda Mence";
+const defaultLang = "en";
+---
+
+<!doctype html>
+<html lang={lang ? lang : defaultLang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO -->
+    <title>{title ? `${name}: ${title}` : name}</title>
+
+    <!-- favicon placement -->
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+  </head>
+  <body>
+    <!-- decap cms -->
+    <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
+    <!-- slot -->
+    <slot />
+  </body>
+</html>
