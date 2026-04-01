@@ -13,6 +13,7 @@
     "@astrojs/preact": "^5.1.0",
     "astro": "^6.1.2",
     "decap-cms-app": "^3.11.0",
+    "netlify-identity-widget": "^2.0.3",
     "preact": "^10.27.1"
   }
 }
