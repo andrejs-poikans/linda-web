@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway # or github / gitlab later
+  name: github # or github / gitlab later
+  repo: andrejs-poikans/linda-web
   branch: main
 
 media_folder: "src/assets/images" # Location where files will be stored in the repo
