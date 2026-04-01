@@ -13,6 +13,6 @@ media_folder: "src/assets/images" # Location where files will be stored in the r
 public_folder: "src/assets/images" # The src attribute for uploaded media
 
 backend:
-  name: git-gateway
+  name: gitlab # or github / gitlab later
   repo: andrejs-poikans/linda-web
   branch: main
