@@ -25,7 +25,12 @@ collections:
           widget: "image",
           required: false,
         }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - {
+          label: "Body",
+          name: "body",
+          widget: "markdown",
+          modes: ["rich_text"],
+        }
 
   - name: "text_lv"
     label: "Text (LV)"
@@ -49,7 +54,12 @@ collections:
           widget: "list",
           field: { label: "Image", name: "image", widget: "image" },
         }
-      - { label: "Body", name: "body", widget: "markdown", required: false }
+      - {
+          label: "Body",
+          name: "body",
+          widget: "markdown",
+          modes: ["rich_text"],
+        }
 
   - name: "books_lv"
     label: "Books (LV)"
@@ -73,7 +83,12 @@ collections:
           widget: "list",
           field: { label: "Image", name: "image", widget: "image" },
         }
-      - { label: "Body", name: "body", widget: "markdown", required: false }
+      - {
+          label: "Body",
+          name: "body",
+          widget: "markdown",
+          modes: ["rich_text"],
+        }
 
   - name: "illustration_lv"
     label: "Illustration (LV)"
@@ -97,7 +112,12 @@ collections:
           widget: "list",
           field: { label: "Image", name: "image", widget: "image" },
         }
-      - { label: "Body", name: "body", widget: "markdown", required: false }
+      - {
+          label: "Body",
+          name: "body",
+          widget: "markdown",
+          modes: ["rich_text"],
+        }
 
   - name: "other_lv"
     label: "Other (LV)"
@@ -121,7 +141,12 @@ collections:
           widget: "list",
           field: { label: "Image", name: "image", widget: "image" },
         }
-      - { label: "Body", name: "body", widget: "markdown", required: false }
+      - {
+          label: "Body",
+          name: "body",
+          widget: "markdown",
+          modes: ["rich_text"],
+        }
 
   - name: "about_lv"
     label: "About (LV)"
