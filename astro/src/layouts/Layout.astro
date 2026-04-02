@@ -18,17 +18,7 @@ const defaultLang = "en";
     <!-- favicon placement -->
     <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
 
-    <!-- cms -->
-    <!-- <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" /> -->
-
-    <!-- <script>
-      const hash = window.location.hash;
-      if (hash.includes("invite_token") || hash.includes("recovery_token")) {
-        window.location.replace("/admin/" + hash);
-      } else {
-        window.location.replace("/en/"); // your normal language redirect
-      }
-    </script> -->
+    <!-- cms redirect -->
     <script>
       const hash = window.location.hash;
 
@@ -44,8 +34,6 @@ const defaultLang = "en";
     </script>
   </head>
   <body>
-    <!-- decap cms -->
-    <!-- <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script> -->
     <!-- slot -->
     <slot />
   </body>

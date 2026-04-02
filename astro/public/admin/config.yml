@@ -6,14 +6,126 @@ media_folder: "src/assets/images"
 public_folder: "/src/assets/images"
 
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "src/content/blog"
+  - name: "text_en"
+    label: "Text (EN)"
+    folder: "src/content/text/en"
     create: true
-
-    fields:
+    slug: "{{slug}}"
+    fields: &textFields
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "string" }
-      - { label: "Publish date", name: "pubDate", widget: "datetime" }
-      - { label: "Hero image", name: "heroImage", widget: "image" }
+      - {
+          label: "Description",
+          name: "description",
+          widget: "text",
+          required: false,
+        }
+      - {
+          label: "Cover image",
+          name: "cover",
+          widget: "image",
+          required: false,
+        }
       - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "text_lv"
+    label: "Text (LV)"
+    folder: "src/content/text/lv"
+    create: true
+    slug: "{{slug}}"
+    fields: *textFields
+
+  - name: "books_en"
+    label: "Books (EN)"
+    folder: "src/content/books/en"
+    create: true
+    slug: "{{slug}}"
+    fields: &bookFields
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Year", name: "year", widget: "string" }
+      - { label: "Featured image", name: "featuredImage", widget: "image" }
+      - {
+          label: "Gallery",
+          name: "gallery",
+          widget: "list",
+          field: { label: "Image", name: "image", widget: "image" },
+        }
+      - { label: "Body", name: "body", widget: "markdown", required: false }
+
+  - name: "books_lv"
+    label: "Books (LV)"
+    folder: "src/content/books/lv"
+    create: true
+    slug: "{{slug}}"
+    fields: *bookFields
+
+  - name: "illustration_en"
+    label: "Illustration (EN)"
+    folder: "src/content/illustration/en"
+    create: true
+    slug: "{{slug}}"
+    fields: &illustrationFields
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Year", name: "year", widget: "string" }
+      - { label: "Featured image", name: "featuredImage", widget: "image" }
+      - {
+          label: "Gallery",
+          name: "gallery",
+          widget: "list",
+          field: { label: "Image", name: "image", widget: "image" },
+        }
+      - { label: "Body", name: "body", widget: "markdown", required: false }
+
+  - name: "illustration_lv"
+    label: "Illustration (LV)"
+    folder: "src/content/illustration/lv"
+    create: true
+    slug: "{{slug}}"
+    fields: *illustrationFields
+
+  - name: "other_en"
+    label: "Other (EN)"
+    folder: "src/content/other/en"
+    create: true
+    slug: "{{slug}}"
+    fields: &otherFields
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Year", name: "year", widget: "string" }
+      - { label: "Featured image", name: "featuredImage", widget: "image" }
+      - {
+          label: "Gallery",
+          name: "gallery",
+          widget: "list",
+          field: { label: "Image", name: "image", widget: "image" },
+        }
+      - { label: "Body", name: "body", widget: "markdown", required: false }
+
+  - name: "other_lv"
+    label: "Other (LV)"
+    folder: "src/content/other/lv"
+    create: true
+    slug: "{{slug}}"
+    fields: *otherFields
+
+  - name: "about_en"
+    label: "About (EN)"
+    folder: "src/content/about/en"
+    create: true
+    slug: "{{slug}}"
+    fields: &aboutFields
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Year", name: "year", widget: "string" }
+      - { label: "Featured image", name: "featuredImage", widget: "image" }
+      - {
+          label: "Gallery",
+          name: "gallery",
+          widget: "list",
+          field: { label: "Image", name: "image", widget: "image" },
+        }
+      - { label: "Body", name: "body", widget: "markdown", required: false }
+
+  - name: "about_lv"
+    label: "About (LV)"
+    folder: "src/content/about/lv"
+    create: true
+    slug: "{{slug}}"
+    fields: *aboutFields
