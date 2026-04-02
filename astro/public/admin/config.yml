@@ -68,35 +68,6 @@ collections:
     slug: "{{slug}}"
     fields: *bookFields
 
-  - name: "illustration_en"
-    label: "Illustration (EN)"
-    folder: "src/content/illustration/en"
-    create: true
-    slug: "{{slug}}"
-    fields: &illustrationFields
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Year", name: "year", widget: "string" }
-      - { label: "Featured image", name: "featuredImage", widget: "image" }
-      - {
-          label: "Gallery",
-          name: "gallery",
-          widget: "list",
-          field: { label: "Image", name: "image", widget: "image" },
-        }
-      - {
-          label: "Body",
-          name: "body",
-          widget: "markdown",
-          modes: ["rich_text"],
-        }
-
-  - name: "illustration_lv"
-    label: "Illustration (LV)"
-    folder: "src/content/illustration/lv"
-    create: true
-    slug: "{{slug}}"
-    fields: *illustrationFields
-
   - name: "other_en"
     label: "Other (EN)"
     folder: "src/content/other/en"
