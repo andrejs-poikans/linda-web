@@ -46,13 +46,19 @@ collections:
     slug: "{{slug}}"
     fields: &bookFields
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Year", name: "year", widget: "string" }
-      - { label: "Featured image", name: "featuredImage", widget: "image" }
+      # - { label: "Year", name: "year", widget: "string" }
+      - {
+          label: "Featured image",
+          name: "featuredImage",
+          widget: "image",
+          required: false,
+        }
       - {
           label: "Gallery",
           name: "gallery",
           widget: "list",
           field: { label: "Image", name: "image", widget: "image" },
+          required: false,
         }
       - {
           label: "Body",
@@ -75,13 +81,19 @@ collections:
     slug: "{{slug}}"
     fields: &otherFields
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Year", name: "year", widget: "string" }
-      - { label: "Featured image", name: "featuredImage", widget: "image" }
+      # - { label: "Year", name: "year", widget: "string" }
+      - {
+          label: "Featured image",
+          name: "featuredImage",
+          widget: "image",
+          required: false,
+        }
       - {
           label: "Gallery",
           name: "gallery",
           widget: "list",
           field: { label: "Image", name: "image", widget: "image" },
+          required: false,
         }
       - {
           label: "Body",
@@ -104,13 +116,19 @@ collections:
     slug: "{{slug}}"
     fields: &aboutFields
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Year", name: "year", widget: "string" }
-      - { label: "Featured image", name: "featuredImage", widget: "image" }
+      # - { label: "Year", name: "year", widget: "string" }
+      - {
+          label: "Featured image",
+          name: "featuredImage",
+          widget: "image",
+          required: false,
+        }
       - {
           label: "Gallery",
           name: "gallery",
           widget: "list",
           field: { label: "Image", name: "image", widget: "image" },
+          required: false,
         }
       - {
           label: "Body",
