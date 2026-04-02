@@ -1,18 +1,19 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/assets/images"
+public_folder: "/src/assets/images"
+
 collections:
-  - name: "blog" # Used in routes, e.g., /admin/collections/blog
-    label: "Blog" # Used in the UI
-    folder: "src/content/blog" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    fields: # The fields for each document, usually in frontmatter
+  - name: "blog"
+    label: "Blog"
+    folder: "src/content/blog"
+    create: true
+
+    fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Publish date", name: "pubDate", widget: "datetime" }
-      - { label: "Hero image", name: "heroImage", widget: "string" }
-
-media_folder: "src/assets/images" # Location where files will be stored in the repo
-public_folder: "src/assets/images" # The src attribute for uploaded media
-
-backend:
-  name: git-gateway # or github / gitlab later
-  repo: andrejs-poikans/linda-web
-  branch: main
+      - { label: "Hero image", name: "heroImage", widget: "image" }
+      - { label: "Body", name: "body", widget: "markdown" }
