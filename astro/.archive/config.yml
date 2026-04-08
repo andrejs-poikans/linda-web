@@ -8,7 +8,7 @@ public_folder: "astro/src/assets/images"
 collections:
   - name: "text_en"
     label: "Text (EN)"
-    folder: "astro/src/pages/content/text/en"
+    folder: "astro/src/pages/text/en"
     create: true
     slug: "{{slug}}"
     fields: &textFields
@@ -34,14 +34,14 @@ collections:
 
   - name: "text_lv"
     label: "Text (LV)"
-    folder: "astro/src/pages/content/text/lv"
+    folder: "astro/src/pages/text/lv"
     create: true
     slug: "{{slug}}"
     fields: *textFields
 
   - name: "books_en"
     label: "Books (EN)"
-    folder: "astro/src/pages/content/books/en"
+    folder: "astro/src/pages/books/en"
     create: true
     slug: "{{slug}}"
     fields: &bookFields
@@ -69,14 +69,14 @@ collections:
 
   - name: "books_lv"
     label: "Books (LV)"
-    folder: "astro/src/pages/content/books/lv"
+    folder: "astro/src/pages/books/lv"
     create: true
     slug: "{{slug}}"
     fields: *bookFields
 
   - name: "other_en"
     label: "Other (EN)"
-    folder: "astro/src/pages/content/other/en"
+    folder: "astro/src/pages/other/en"
     create: true
     slug: "{{slug}}"
     fields: &otherFields
@@ -104,14 +104,14 @@ collections:
 
   - name: "other_lv"
     label: "Other (LV)"
-    folder: "astro/src/pages/content/other/lv"
+    folder: "astro/src/pages/other/lv"
     create: true
     slug: "{{slug}}"
     fields: *otherFields
 
   - name: "about_en"
     label: "About (EN)"
-    folder: "astro/src/pages/content/about/en"
+    folder: "astro/src/pages/about/en"
     create: true
     slug: "{{slug}}"
     fields: &aboutFields
@@ -139,7 +139,7 @@ collections:
 
   - name: "about_lv"
     label: "About (LV)"
-    folder: "astro/src/pages/content/about/lv"
+    folder: "astro/src/pages/about/lv"
     create: true
     slug: "{{slug}}"
     fields: *aboutFields

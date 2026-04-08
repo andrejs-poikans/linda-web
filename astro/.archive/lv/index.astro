@@ -1,0 +1,10 @@
+---
+import LayoutLV from '../../layouts/LayoutLV.astro';
+import Home from '../../components/Home.jsx';
+import MenuLV from '../../components/MenuLV.astro';
+---
+
+<LayoutLV>
+    <MenuLV />
+    <Home client:load />
+</LayoutLV>

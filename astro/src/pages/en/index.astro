@@ -1,10 +1,18 @@
 ---
-import LayoutENG from '../../layouts/LayoutENG.astro';
-import MenuENG from '../../components/MenuENG.astro';
-import Home from '../../components/Home.jsx';
+import Layout from "../../layouts/Layout.astro";
+import BlogPost from "../../components/BlogPost.astro";
+
+const allPosts = Object.values(import.meta.glob("./**/*.md", { eager: true }));
+
+const pageTitle = "home";
 ---
 
-<LayoutENG>
-    <MenuENG />
-    <Home client:load />
-</LayoutENG>
+<Layout pageTitle={pageTitle}>
+  <ul>
+    {
+      allPosts.map((post: any) => (
+        <BlogPost url={post.url} title={post.frontmatter.title} />
+      ))
+    }
+  </ul>
+</Layout>

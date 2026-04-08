@@ -1,10 +1,18 @@
 ---
-import LayoutLV from '../../layouts/LayoutLV.astro';
-import Home from '../../components/Home.jsx';
-import MenuLV from '../../components/MenuLV.astro';
+import Layout from "../../layouts/Layout.astro";
+import BlogPost from "../../components/BlogPost.astro";
+
+const allPosts = Object.values(import.meta.glob("./**/*.md", { eager: true }));
+
+const pageTitle = "mājas";
 ---
 
-<LayoutLV>
-    <MenuLV />
-    <Home client:load />
-</LayoutLV>
+<Layout pageTitle={pageTitle}>
+  <ul>
+    {
+      allPosts.map((post: any) => (
+        <BlogPost url={post.url} title={post.frontmatter.title} />
+      ))
+    }
+  </ul>
+</Layout>
