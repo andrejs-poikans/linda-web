@@ -1,6 +1,9 @@
 ---
+lang: lv
+layout: ../../../layouts/MDLayout.astro
 title: teksts
 ---
+
 Kosmoss ir virs bēniņiem [lasīt](<https://satori.lv/article/kosmoss-ir-virs-beniniem >)
 
 Pērnā raža [lasīt](https://www.punctummagazine.lv/2024/02/09/perna-raza/)

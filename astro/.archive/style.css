@@ -9,51 +9,6 @@ body {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  --body: black;
-  --highlight: green;
-  --sec-highlight: purple;
-}
-
-/* general text style */
-
-a {
-  color: var(--highlight);
-}
-
-/* header */
-
-.menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  max-width: 25%;
-}
-
-.nav-wrap {
-  display: flex;
-  flex-direction: column;
-  padding: 1em;
-  font-weight: 500;
-}
-
-.lang-sw a {
-  color: var(--sec-highlight);
-}
-
-/* main */
-/* need to check width */
-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  padding-top: 1em;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1000px;
-}
-
-.pagetitle {
-  margin-bottom: 1em;
 }
 
 /* highlight tool */
@@ -66,6 +21,11 @@ main {
 ::selection {
   background: lavender;
   color: coral;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: row;
 }
 
 .block {
@@ -83,6 +43,28 @@ main {
 
 .item {
   padding-bottom: 20px;
+}
+
+.menu {
+  height: 100%;
+  width: 200px;
+}
+
+.nav-wrap {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  font-weight: 500;
+}
+
+a {
+  color: green;
+}
+
+.home-wrap {
+  padding-top: 1em;
+  height: 100vh;
+  overflow-y: scroll;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */

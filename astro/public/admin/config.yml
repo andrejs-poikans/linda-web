@@ -16,8 +16,10 @@ collections:
           label: "Layout",
           name: "layout",
           widget: "hidden",
-          default: "src/components/layouts/MDLayout.astro",
+          layout: ../../../layouts/MDLayout.astro,
         }
+      - { label: "Language", name: "lang", default: "en", widget: "string" }
+
       - { label: "Title", name: "title", widget: "string" }
 
       - label: "Body"
@@ -42,8 +44,9 @@ collections:
           label: "Layout",
           name: "layout",
           widget: "hidden",
-          default: "src/components/layouts/MDLayout.astro",
+          layout: ../../../layouts/MDLayout.astro,
         }
+      - { label: "Language", name: "lang", default: "en", widget: "string" }
       - { label: "Title", name: "title", widget: "string" }
 
       - label: "Featured image"
