@@ -12,34 +12,34 @@ collections:
     create: true
     slug: "{{slug}}"
     fields: &pageFieldsEN
-      - {
-          label: "Layout",
-          name: "layout",
-          widget: "hidden",
-          layout: ../../../layouts/MDLayout.astro,
-        }
-      - { label: "Language", name: "lang", default: "en", widget: "hidden" }
-      - { label: "Title", name: "title", widget: "string" }
+        - {
+            label: "Layout",
+            name: "layout",
+            widget: "hidden",
+            layout: ../../../layouts/MDLayout.astro,
+          }
+        - { label: "Language", name: "lang", default: "en", widget: "hidden" }
+        - { label: "Title", name: "title", widget: "string" }
 
-      - label: "Featured image"
-        name: "featuredImage"
-        widget: "image"
-        required: false
-
-      - label: "Gallery"
-        name: "gallery"
-        widget: "list"
-        required: false
-        field:
-          label: "Image"
-          name: "image"
+        - label: "Featured image"
+          name: "featuredImage"
           widget: "image"
+          required: false
 
-      - label: "Body"
-        name: "body"
-        widget: "markdown"
-        modes: ["rich_text"]
-        required: false
+        - label: "Gallery"
+          name: "gallery"
+          widget: "list"
+          required: false
+          field:
+            label: "Image"
+            name: "image"
+            widget: "image"
+
+        - label: "Body"
+          name: "body"
+          widget: "markdown"
+          modes: ["rich_text"]
+          required: false
 
   - name: "about_lv"
     label: "About (LV)"
@@ -47,34 +47,34 @@ collections:
     create: true
     slug: "{{slug}}"
     fields: *pageFieldsLV
-          - {
+        - {
           label: "Layout",
           name: "layout",
           widget: "hidden",
           layout: ../../../layouts/MDLayout.astro,
         }
-      - { label: "Language", name: "lang", default: "lv", widget: "hidden" }
-      - { label: "Title", name: "title", widget: "string" }
+        - { label: "Language", name: "lang", default: "lv", widget: "hidden" }
+        - { label: "Title", name: "title", widget: "string" }
 
-      - label: "Featured image"
-        name: "featuredImage"
-        widget: "image"
-        required: false
-
-      - label: "Gallery"
-        name: "gallery"
-        widget: "list"
-        required: false
-        field:
-          label: "Image"
-          name: "image"
+        - label: "Featured image"
+          name: "featuredImage"
           widget: "image"
+          required: false
 
-      - label: "Body"
-        name: "body"
-        widget: "markdown"
-        modes: ["rich_text"]
-        required: false
+        - label: "Gallery"
+          name: "gallery"
+          widget: "list"
+          required: false
+          field:
+            label: "Image"
+            name: "image"
+            widget: "image"
+
+        - label: "Body"
+          name: "body"
+          widget: "markdown"
+          modes: ["rich_text"]
+          required: false
 
   - name: "books_en"
     label: "Books (EN)"
