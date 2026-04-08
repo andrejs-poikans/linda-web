@@ -1,18 +1,19 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import BlogPost from "../../components/BlogPost.astro";
+// import BlogPost from "../../components/BlogPost.astro";
 
-const allPosts = Object.values(import.meta.glob("./**/*.md", { eager: true }));
+// const allPosts = Object.values(import.meta.glob("./**/*.md", { eager: true }));
 
 const pageTitle = "mājas";
+const lang = "lv";
 ---
 
-<Layout pageTitle={pageTitle}>
-  <ul>
+<Layout pageTitle={pageTitle} lang={lang}>
+  <!-- <ul>
     {
       allPosts.map((post: any) => (
         <BlogPost url={post.url} title={post.frontmatter.title} />
       ))
     }
-  </ul>
+  </ul> -->
 </Layout>

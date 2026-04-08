@@ -11,6 +11,7 @@
   "dependencies": {
     "@astrojs/netlify": "^7.0.5",
     "@astrojs/preact": "^5.1.0",
+    "@fontsource-variable/eb-garamond": "^5.2.7",
     "astro": "^6.1.2",
     "decap-cms-app": "^3.11.0",
     "netlify-identity-widget": "^2.0.3",

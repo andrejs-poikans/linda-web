@@ -1,8 +1,16 @@
 ---
 const { lang, title } = Astro.props;
+import "../assets/css/style.css";
+import "../assets/css/reset.css";
+import Header from "../components/Header.astro";
 
 const name = "Linda Mence";
 const defaultLang = "en";
+
+// fonts
+// eb garamond
+import "@fontsource-variable/eb-garamond/wght.css";
+import "@fontsource-variable/eb-garamond/wght-italic.css";
 ---
 
 <!doctype html>
@@ -34,6 +42,7 @@ const defaultLang = "en";
     </script>
   </head>
   <body>
+    <Header lang={lang ? lang : defaultLang} />
     <!-- slot -->
     <slot />
   </body>

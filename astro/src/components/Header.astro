@@ -1,0 +1,33 @@
+---
+import BlogPost from "../components/BlogPost.astro";
+
+const { lang } = Astro.props;
+
+const otherLang = lang === "en" ? "lv" : "en";
+
+const allPostsEn = Object.values(
+  import.meta.glob(`/src/pages/en/**/*.md`, { eager: true }),
+);
+
+const allPostsLv = Object.values(
+  import.meta.glob(`/src/pages/lv/**/*.md`, { eager: true }),
+);
+
+const allPosts = lang === "en" ? allPostsEn : allPostsLv;
+---
+
+<header>
+  <div class="menu">
+    <div class="nav-wrap">
+      <h3>Linda Mence</h3>
+      <ul>
+        {
+          allPosts.map((post: any) => (
+            <BlogPost url={post.url} title={post.frontmatter.title} />
+          ))
+        }
+      </ul>
+      <div><a href={`../${otherLang}`}>{otherLang}</a></div>
+    </div>
+  </div>
+</header>
