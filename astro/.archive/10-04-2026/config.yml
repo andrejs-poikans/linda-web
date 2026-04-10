@@ -1,0 +1,120 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "astro/src/assets/images"
+public_folder: "/src/assets/images"
+
+collections:
+  - name: "about_en"
+    label: "About (EN)"
+    folder: "astro/src/pages/en/about"
+    create: true
+    slug: "{{slug}}"
+    fields: &pageFieldsEN
+      - {
+          label: "Layout",
+          name: "layout",
+          widget: "hidden",
+          layout: "/src/layouts/MDLayout.astro",
+        }
+
+      - { label: "Language", name: "lang", default: "en", widget: "hidden" }
+      - { label: "Title", name: "title", widget: "string" }
+
+      - label: "Featured image"
+        name: "featuredImage"
+        widget: "image"
+        required: false
+
+      - label: "Gallery"
+        name: "gallery"
+        widget: "list"
+        required: false
+        field:
+          label: "Image"
+          name: "image"
+          widget: "image"
+
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        modes: ["rich_text"]
+        required: false
+
+  - name: "about_lv"
+    label: "About (LV)"
+    folder: "astro/src/pages/lv/about"
+    create: true
+    slug: "{{slug}}"
+    fields: &pageFieldsLV
+      - {
+          label: "Layout",
+          name: "layout",
+          widget: "hidden",
+          layout: "/src/layouts/MDLayout.astro",
+        }
+      - { label: "Language", name: "lang", default: "lv", widget: "hidden" }
+      - { label: "Title", name: "title", widget: "string" }
+
+      - label: "Featured image"
+        name: "featuredImage"
+        widget: "image"
+        required: false
+
+      - label: "Gallery"
+        name: "gallery"
+        widget: "list"
+        required: false
+        field:
+          label: "Image"
+          name: "image"
+          widget: "image"
+
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        modes: ["rich_text"]
+        required: false
+
+  - name: "books_en"
+    label: "Books (EN)"
+    folder: "astro/src/pages/en/books"
+    create: true
+    slug: "{{slug}}"
+    fields: *pageFieldsEN
+
+  - name: "books_lv"
+    label: "Books (LV)"
+    folder: "astro/src/pages/lv/books"
+    create: true
+    slug: "{{slug}}"
+    fields: *pageFieldsLV
+
+  - name: "other_en"
+    label: "Other work (EN)"
+    folder: "astro/src/pages/en/other"
+    create: true
+    slug: "{{slug}}"
+    fields: *pageFieldsEN
+
+  - name: "other_lv"
+    label: "Other work (LV)"
+    folder: "astro/src/pages/lv/other"
+    create: true
+    slug: "{{slug}}"
+    fields: *pageFieldsLV
+
+  - name: "text_en"
+    label: "Text pages (EN)"
+    folder: "astro/src/pages/en/text"
+    create: true
+    slug: "{{slug}}"
+    fields: *pageFieldsEN
+
+  - name: "text_lv"
+    label: "Text pages (LV)"
+    folder: "astro/src/pages/lv/text"
+    create: true
+    slug: "{{slug}}"
+    fields: *pageFieldsLV
