@@ -1,6 +1,6 @@
 ---
 lang: lv
-layout: ../../../layouts/MDLayout.astro
+layout: /src/layouts/MDLayout.astro
 title: teksts
 ---
 
