@@ -14,6 +14,20 @@ const allPostsLv = Object.values(
 );
 
 const allPosts = lang === "en" ? allPostsEn : allPostsLv;
+
+const postsByGroup: Record<string, any[]> = {};
+
+allPosts.forEach((post: any) => {
+  const segments = post.url.split("/").filter(Boolean);
+
+  const group: string = segments[1] || "ungrouped";
+
+  if (!postsByGroup[group]) {
+    postsByGroup[group] = [];
+  }
+
+  postsByGroup[group].push(post);
+});
 ---
 
 <header>
@@ -21,12 +35,24 @@ const allPosts = lang === "en" ? allPostsEn : allPostsLv;
     <div class="nav-wrap">
       <h3>Linda Mence</h3>
       <ul>
-        {
+        <!-- {
           allPosts.map((post: any) => (
             <BlogPost url={post.url} title={post.frontmatter.title} />
           ))
+        } -->
+        {
+          Object.entries(postsByGroup).map(([group, posts]: any) => (
+            <>
+              <h1>{group}</h1>
+
+              {posts.map((post: any) => (
+                <BlogPost url={post.url} title={post.frontmatter.title} />
+              ))}
+            </>
+          ))
         }
       </ul>
+
       <div class="lang-sw"><a href={`/${otherLang}`}>{otherLang}</a></div>
     </div>
   </div>
