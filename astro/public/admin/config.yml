@@ -47,11 +47,11 @@ collections:
   #       required: false
 
   # =========================
-  # 🧩 CREATE PAGE
+  # 🧩 CREATE PAGE (EN)
   # =========================
-  - name: "page_paths"
-    label: "Create Page"
-    folder: "astro/src/pages"
+  - name: "page_paths_en"
+    label: "Create Page (EN)"
+    folder: "astro/src/pages/en"
     create: true
     slug: "{{slug}}"
 
@@ -65,6 +65,86 @@ collections:
       - label: "Title"
         name: "title"
         widget: "string"
+
+      - label: "Layout"
+        name: "layout"
+        widget: "hidden"
+        default: "src/layouts/MDLayout.astro"
+
+      - label: "Language"
+        name: "lang"
+        widget: "hidden"
+        default: "en"
+
+      - label: "Featured image"
+        name: "featuredImage"
+        widget: "image"
+        required: false
+
+      - label: "Gallery"
+        name: "gallery"
+        widget: "list"
+        required: false
+        field:
+          label: "Image"
+          name: "image"
+          widget: "image"
+
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        modes: ["rich_text"]
+        required: false
+
+  # =========================
+  # 🧩 CREATE PAGE (LV)
+  # =========================
+  - name: "page_paths_lv"
+    label: "Create Page (LV)"
+    folder: "astro/src/pages/lv"
+    create: true
+    slug: "{{slug}}"
+
+    meta:
+      path:
+        widget: string
+        label: "Full Path"
+        index_file: "index"
+
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+
+      - label: "Layout"
+        name: "layout"
+        widget: "hidden"
+        default: "src/layouts/MDLayout.astro"
+
+      - label: "Language"
+        name: "lang"
+        widget: "hidden"
+        default: "en"
+
+      - label: "Featured image"
+        name: "featuredImage"
+        widget: "image"
+        required: false
+
+      - label: "Gallery"
+        name: "gallery"
+        widget: "list"
+        required: false
+        field:
+          label: "Image"
+          name: "image"
+          widget: "image"
+
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        modes: ["rich_text"]
+        required: false
 
   # =========================
   # ✏️ EDIT PAGES (EN)
