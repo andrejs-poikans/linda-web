@@ -2,13 +2,13 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "src/assets/images"
-public_folder: "/src/assets/images"
+media_folder: "astro/src/assets/images"
+public_folder: "/astro/src/assets/images"
 
 collections:
   - name: "pages_en"
     label: "Pages (EN)"
-    folder: "src/pages/en"
+    folder: "astro/src/pages/en"
     create: true
     slug: "{{slug}}"
 
@@ -27,7 +27,7 @@ collections:
       - label: "Layout"
         name: "layout"
         widget: "hidden"
-        default: "/src/layouts/MDLayout.astro"
+        default: "astro/src/layouts/MDLayout.astro"
 
       - label: "Language"
         name: "lang"
@@ -60,7 +60,7 @@ collections:
 
   - name: "pages_lv"
     label: "Pages (LV)"
-    folder: "src/pages/lv"
+    folder: "astro/src/pages/lv"
     create: true
     slug: "{{slug}}"
 
@@ -79,7 +79,7 @@ collections:
       - label: "Layout"
         name: "layout"
         widget: "hidden"
-        default: "/src/layouts/MDLayout.astro"
+        default: "astro/src/layouts/MDLayout.astro"
 
       - label: "Language"
         name: "lang"
