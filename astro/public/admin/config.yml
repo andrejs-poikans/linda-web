@@ -6,158 +6,22 @@ media_folder: "astro/src/assets/images"
 public_folder: "/astro/src/assets/images"
 
 collections:
-  # # =========================
-  # # 🧩 CREATE PAGE (EN)
-  # # =========================
-  # - name: "page_paths_en"
-  #   label: "Create Page (EN)"
-  #   folder: "astro/src/pages/en"
-  #   create: true
-  #   slug: "{{slug}}"
-
-  #   meta:
-  #     path:
-  #       widget: string
-  #       label: "Full Path (e.g. about/team)"
-  #       index_file: "index"
-
-  #   fields:
-  #     - label: "Title"
-  #       name: "title"
-  #       widget: "string"
-
-  #     - label: "Slug"
-  #       name: "slug"
-  #       widget: "string"
-  #       hint: "URL name (e.g. about-us). Used for folder name."
-
-  #     - label: "Layout"
-  #       name: "layout"
-  #       widget: "hidden"
-  #       default: "src/layouts/MDLayout.astro"
-
-  #     - label: "Language"
-  #       name: "lang"
-  #       widget: "hidden"
-  #       default: "en"
-
-  #     - label: "Body"
-  #       name: "body"
-  #       widget: "markdown"
-  #       required: false
-
-  # =========================
-  # 🧩 CREATE PAGE (EN)
-  # =========================
-  - name: "page_paths_en"
-    label: "Create Page (EN)"
-    folder: "astro/src/pages/en"
-    create: true
-    slug: "{{slug}}"
-
-    meta:
-      path:
-        widget: string
-        label: "Full Path"
-        index_file: "index"
-
-    fields:
-      - label: "Title"
-        name: "title"
-        widget: "string"
-
-      - label: "Layout"
-        name: "layout"
-        widget: "hidden"
-        default: "/src/layouts/MDLayout.astro"
-
-      - label: "Language"
-        name: "lang"
-        widget: "hidden"
-        default: "en"
-
-      - label: "Featured image"
-        name: "featuredImage"
-        widget: "image"
-        required: false
-
-      - label: "Gallery"
-        name: "gallery"
-        widget: "list"
-        required: false
-        field:
-          label: "Image"
-          name: "image"
-          widget: "image"
-
-      - label: "Body"
-        name: "body"
-        widget: "markdown"
-        modes: ["rich_text"]
-        required: false
-
-  # =========================
-  # 🧩 CREATE PAGE (LV)
-  # =========================
-  - name: "page_paths_lv"
-    label: "Create Page (LV)"
-    folder: "astro/src/pages/lv"
-    create: true
-    slug: "{{slug}}"
-
-    meta:
-      path:
-        widget: string
-        label: "Full Path"
-        index_file: "index"
-
-    fields:
-      - label: "Title"
-        name: "title"
-        widget: "string"
-
-      - label: "Layout"
-        name: "layout"
-        widget: "hidden"
-        default: "/src/layouts/MDLayout.astro"
-
-      - label: "Language"
-        name: "lang"
-        widget: "hidden"
-        default: "en"
-
-      - label: "Featured image"
-        name: "featuredImage"
-        widget: "image"
-        required: false
-
-      - label: "Gallery"
-        name: "gallery"
-        widget: "list"
-        required: false
-        field:
-          label: "Image"
-          name: "image"
-          widget: "image"
-
-      - label: "Body"
-        name: "body"
-        widget: "markdown"
-        modes: ["rich_text"]
-        required: false
-
-  # =========================
-  # ✏️ EDIT PAGES (EN)
-  # =========================
   - name: "pages_en"
     label: "Pages (EN)"
     folder: "astro/src/pages/en"
-    create: false
+    create: true
+    slug: "{{title}}"
 
     nested:
       depth: 100
       summary: "{{title}}"
       subfolders: true
+
+    meta:
+      path:
+        widget: string
+        label: "Path"
+        index_file: "index"
 
     fields: &pageFields
       - label: "Layout"
@@ -194,18 +58,22 @@ collections:
         modes: ["rich_text"]
         required: false
 
-  # =========================
-  # ✏️ EDIT PAGES (LV)
-  # =========================
   - name: "pages_lv"
     label: "Pages (LV)"
     folder: "astro/src/pages/lv"
-    create: false
+    create: true
+    slug: "{{title}}"
 
     nested:
       depth: 100
       summary: "{{title}}"
       subfolders: true
+
+    meta:
+      path:
+        widget: string
+        label: "Path"
+        index_file: "index"
 
     fields:
       - label: "Layout"
