@@ -1,6 +1,6 @@
 ---
 lang: en
-layout: /src/layouts/MDLayout.astro
+layout: "/src/layouts/MDLayout.astro"
 title: text
 ---
 
