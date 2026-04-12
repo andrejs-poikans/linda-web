@@ -69,7 +69,7 @@ collections:
       - label: "Layout"
         name: "layout"
         widget: "hidden"
-        default: "src/layouts/MDLayout.astro"
+        default: "/src/layouts/MDLayout.astro"
 
       - label: "Language"
         name: "lang"
@@ -119,7 +119,7 @@ collections:
       - label: "Layout"
         name: "layout"
         widget: "hidden"
-        default: "src/layouts/MDLayout.astro"
+        default: "/src/layouts/MDLayout.astro"
 
       - label: "Language"
         name: "lang"
@@ -163,7 +163,7 @@ collections:
       - label: "Layout"
         name: "layout"
         widget: "hidden"
-        default: "src/layouts/MDLayout.astro"
+        default: "/src/layouts/MDLayout.astro"
 
       - label: "Language"
         name: "lang"
@@ -211,7 +211,7 @@ collections:
       - label: "Layout"
         name: "layout"
         widget: "hidden"
-        default: "src/layouts/MDLayout.astro"
+        default: "/src/layouts/MDLayout.astro"
 
       - label: "Language"
         name: "lang"
