@@ -17,11 +17,11 @@ collections:
       summary: "{{title}}"
       subfolders: true
 
-    # meta:
-    #   path:
-    #     widget: string
-    #     label: "Path"
-    #     index_file: "index"
+    meta:
+      path:
+        widget: string
+        label: "Path"
+        index_file: "{{title}}"
 
     fields: &pageFields
       - label: "Layout"
@@ -73,7 +73,7 @@ collections:
       path:
         widget: string
         label: "Path"
-        index_file: "index"
+        index_file: "{{title}}"
 
     fields:
       - label: "Layout"
