@@ -10,24 +10,24 @@ collections:
     label: "Pages (EN)"
     folder: "astro/src/pages/en"
     create: true
-    slug: "{{slug}}"
+    slug: "{{title}}"
 
     nested:
       depth: 100
       summary: "{{title}}"
       subfolders: true
 
-    meta:
-      path:
-        widget: string
-        label: "Path"
-        index_file: "index"
+    # meta:
+    #   path:
+    #     widget: string
+    #     label: "Path"
+    #     index_file: "index"
 
     fields: &pageFields
       - label: "Layout"
         name: "layout"
         widget: "hidden"
-        default: "astro/src/layouts/MDLayout.astro"
+        default: "/src/layouts/MDLayout.astro"
 
       - label: "Language"
         name: "lang"
@@ -62,7 +62,7 @@ collections:
     label: "Pages (LV)"
     folder: "astro/src/pages/lv"
     create: true
-    slug: "{{slug}}"
+    slug: "{{title}}"
 
     nested:
       depth: 100
@@ -79,7 +79,7 @@ collections:
       - label: "Layout"
         name: "layout"
         widget: "hidden"
-        default: "astro/src/layouts/MDLayout.astro"
+        default: "/src/layouts/MDLayout.astro"
 
       - label: "Language"
         name: "lang"
