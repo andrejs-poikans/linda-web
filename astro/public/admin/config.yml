@@ -38,6 +38,20 @@ collections:
         name: "title"
         widget: "string"
 
+      # for proper URL generation, we need a separate slug field that doesn't allow uppercase letters or accents
+      - label: "Slug"
+        name: "slug"
+        widget: "string"
+        slug: "{{slug}}"
+        preview_path: "{{slug}}"
+        required: true
+        hint: "Auto-generated from title. Use lowercase, no accents."
+        pattern:
+          [
+            "^[a-z0-9-/]+$",
+            "Only lowercase letters, numbers, dashes and / allowed",
+          ]
+
       - label: "Featured image"
         name: "featuredImage"
         widget: "image"
@@ -89,6 +103,20 @@ collections:
       - label: "Title"
         name: "title"
         widget: "string"
+
+      # for proper URL generation, we need a separate slug field that doesn't allow uppercase letters or accents
+      - label: "Slug"
+        name: "slug"
+        widget: "string"
+        slug: "{{slug}}"
+        preview_path: "{{slug}}"
+        required: true
+        hint: "Auto-generated from title. Use lowercase, no accents."
+        pattern:
+          [
+            "^[a-z0-9-/]+$",
+            "Only lowercase letters, numbers, dashes and / allowed",
+          ]
 
       - label: "Featured image"
         name: "featuredImage"

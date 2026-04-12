@@ -5,6 +5,36 @@
     <title>Content Manager</title>
     <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" />
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    <!-- insert here data key scroipt as well!! -->
+
+    <script>
+      function slugify(text) {
+        return text
+          .toString()
+          .normalize("NFD") // split accents
+          .replace(/[\u0300-\u036f]/g, "") // remove accents
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, "-") // replace spaces/symbols
+          .replace(/^-+|-+$/g, ""); // trim dashes
+      }
+
+      window.CMS.registerEventListener({
+        name: "preSave",
+        handler: ({ entry }) => {
+          const title = entry.getIn(["data", "title"]);
+          const slug = entry.getIn(["data", "slug"]);
+
+          // only auto-fill if slug is empty
+          if (title && (!slug || slug === "")) {
+            const newSlug = slugify(title);
+            return entry.get("data").set("slug", newSlug);
+          }
+
+          return entry;
+        },
+      });
+    </script>
   </head>
 
   <body>
