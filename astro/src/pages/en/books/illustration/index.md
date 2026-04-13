@@ -1,7 +1,9 @@
 ---
+layout: /src/layouts/MDLayout.astro
 lang: en
-layout: "/src/layouts/MDLayout.astro"
 title: illustration
+gallery:
+  - image: /src/assets/images/cerība-fragments.jpg
 ---
 
 Gotholds Efraims Lesings. Nātans Gudrais. Tulk. Jānis Rainis, Rīga: Zinātne, 2024 [look](https://satori.lv/book/natans-gudrais)
