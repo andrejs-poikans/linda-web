@@ -21,13 +21,16 @@ const { frontmatter } = Astro.props;
 
   <main>
     <div class="pagetitle"><h1>{frontmatter.title}</h1></div>
-    <div class="gallery">
-      {
-        frontmatter.gallery.map((location: string, i: number) => (
-          <Image src={frontmatter.gallery[i]} alt={location} loading="lazy" />
-        ))
-      }
-    </div>
+    <!-- build gallery if it exists -->
+    {
+      frontmatter.gallery && (
+        <div class="gallery">
+          {frontmatter.gallery.map((location: string, i: number) => (
+            <Image src={frontmatter.gallery[i]} alt={location} loading="lazy" />
+          ))}
+        </div>
+      )
+    }
     <slot />
   </main>
 </Layout>
