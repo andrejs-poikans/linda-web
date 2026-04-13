@@ -1,6 +1,5 @@
 ---
 import { Image } from "astro:assets";
-import { Picture } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 const { frontmatter } = Astro.props;
 ---
@@ -26,15 +25,20 @@ const { frontmatter } = Astro.props;
     {
       frontmatter.gallery && (
         <div class="gallery">
-          {frontmatter.gallery.map((location: string, i: number) => (
-            <Picture
-              src={frontmatter.gallery[i]}
-              alt={location}
-              formats={["avif", "webp"]}
-              loading="lazy"
-              width="900"
-            />
-          ))}
+          {frontmatter.gallery.map((item: any) => {
+            if (!item?.image) return null;
+
+            return (
+              <Image
+                format="webp"
+                src={item.image}
+                alt={item.alt || ""}
+                loading="lazy"
+                width="900"
+                quality="high"
+              />
+            );
+          })}
         </div>
       )
     }
