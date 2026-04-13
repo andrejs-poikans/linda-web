@@ -2,7 +2,8 @@
 layout: /src/layouts/MDLayout.astro
 lang: en
 title: a new post
-gallery: []
+gallery:
+  - /images/cerība-fragments.jpg
 ---
 
 test post
