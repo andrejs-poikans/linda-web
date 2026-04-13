@@ -61,8 +61,10 @@ collections:
         name: "gallery"
         widget: "list"
         required: false
-        fields:
-          - { label: "Image", name: "image", widget: "image" }
+        field:
+          label: "Image"
+          name: "image"
+          widget: "image"
 
       - label: "Body"
         name: "body"
@@ -125,8 +127,10 @@ collections:
         name: "gallery"
         widget: "list"
         required: false
-        fields:
-          - { label: "Image", name: "image", widget: "image" }
+        field:
+          label: "Image"
+          name: "image"
+          widget: "image"
 
       - label: "Body"
         name: "body"
