@@ -1,6 +1,6 @@
 ---
+layout: /src/layouts/MDLayout.astro
 lang: lv
-layout: "/src/layouts/MDLayout.astro"
 title: ilustrācija
 ---
 
