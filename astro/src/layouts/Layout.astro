@@ -26,6 +26,21 @@ import "@fontsource-variable/eb-garamond/wght-italic.css";
     <!-- favicon placement -->
     <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
 
+    <link
+      rel="preload"
+      href="/fonts/FD_Garamon-d-t/Garamondt-Italic.woff"
+      as="font"
+      type="font/woff"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/FD_Garamon-d-t/Garamondt-Regular.woff"
+      as="font"
+      type="font/woff"
+      crossorigin
+    />
+
     <!-- cms redirect -->
     <script>
       const hash = window.location.hash;
@@ -44,6 +59,7 @@ import "@fontsource-variable/eb-garamond/wght-italic.css";
   <body>
     <Header lang={lang ? lang : defaultLang} />
     <!-- slot -->
+    <div class="canvas"></div>
     <slot />
   </body>
 </html>

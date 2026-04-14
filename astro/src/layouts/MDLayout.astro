@@ -29,14 +29,16 @@ const { frontmatter } = Astro.props;
             if (!item?.image) return null;
 
             return (
-              <Image
-                format="webp"
-                src={item.image}
-                alt={item.alt || ""}
-                loading="lazy"
-                width="900"
-                quality="high"
-              />
+              <div class="gallery-wrap">
+                <Image
+                  format="webp"
+                  src={item.image}
+                  alt={item.alt || ""}
+                  loading="lazy"
+                  width="900"
+                  quality="high"
+                />
+              </div>
             );
           })}
         </div>

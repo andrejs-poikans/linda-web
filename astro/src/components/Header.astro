@@ -13,14 +13,19 @@ const allPostsLv = Object.values(
   import.meta.glob(`/src/pages/lv/**/*.md`, { eager: true }),
 );
 
-const allPosts = lang === "en" ? allPostsEn : allPostsLv;
+const allPosts = (lang === "en" ? allPostsEn : allPostsLv).filter(
+  (post: any) => {
+    const segments = post.url.split("/").filter(Boolean);
+    return segments.length > 1; // ignores root index
+  },
+);
 
 const postsByGroup: Record<string, any[]> = {};
 
 allPosts.forEach((post: any) => {
   const segments = post.url.split("/").filter(Boolean);
 
-  const group: string = segments[1] || "ungrouped";
+  const group: string = segments[1] || "*";
 
   if (!postsByGroup[group]) {
     postsByGroup[group] = [];
@@ -32,28 +37,31 @@ allPosts.forEach((post: any) => {
 
 <header>
   <div class="menu">
-    <div class="nav-wrap">
-      <h3>Linda Mence</h3>
-      <ul>
-        <!-- {
+    <ul class="nav-list">
+      <li class="home"><a href="/"><h1>Linda Mence</h1></a></li>
+
+      <!-- {
           allPosts.map((post: any) => (
             <BlogPost url={post.url} title={post.frontmatter.title} />
           ))
         } -->
-        {
-          Object.entries(postsByGroup).map(([group, posts]: any) => (
-            <>
-              <h1>{group}</h1>
+      {
+        Object.entries(postsByGroup).map(([group, posts]: any) => (
+          <>
+            <li>
+              <div class="section">
+                {posts.length >= 2 && <h1>{group}</h1>}
 
-              {posts.map((post: any) => (
-                <BlogPost url={post.url} title={post.frontmatter.title} />
-              ))}
-            </>
-          ))
-        }
-      </ul>
+                {posts.map((post: any) => (
+                  <BlogPost url={post.url} title={post.frontmatter.title} />
+                ))}
+              </div>
+            </li>
+          </>
+        ))
+      }
 
-      <div class="lang-sw"><a href={`/${otherLang}`}>{otherLang}</a></div>
-    </div>
+      <li class="lang-sw"><a href={`/${otherLang}`}>{otherLang}</a></li>
+    </ul>
   </div>
 </header>

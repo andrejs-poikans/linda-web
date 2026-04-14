@@ -1,39 +1,126 @@
-/* to reduce shakeing effect when scrolling*/
-html,
-body {
-  overscroll-behavior: none;
+/* ************** ************** ************** */
+/* external fonts */
+/* ************** ************** ************** */
+
+@font-face {
+  font-family: "Garamondt";
+  font-style: italic;
+  src: url("/fonts/FD_Garamondt/Garamondt-Italic.woff") format("woff");
 }
 
+@font-face {
+  font-family: "Garamondt";
+  font-style: normal;
+  src: url("/fonts/FD_Garamondt/Garamondt-Regular.woff") format("woff");
+}
+
+/* to reduce shakeing effect when scrolling*/
+/* html,
 body {
-  font-family: "EB Garamond Variable", serif;
+  overscroll-behavior: none;
+} */
+
+body {
+  --primary-font: "EB Garamond Variable", serif;
+  --sec-font: "Garamondt", serif;
+  font-family: var(--primary-font);
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  --body: black;
-  --highlight: green;
-  --sec-highlight: purple;
+  --p-width: 200px;
+  --background: lavender;
+  --body: #ff3855;
+  --highlight: #0070b8;
+  --sec-highlight: #ad6f69;
+  background-color: var(--background);
+  color: var(--body);
+}
+
+/* canvas */
+.canvas {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  height: 100dvh;
+  width: 100dvw;
 }
 
 /* general text style */
 
 a {
+  cursor: pointer;
   color: var(--highlight);
 }
 
-/* header */
+h1::first-letter {
+  font-family: var(--primary-font);
+  font-family: var(--sec-font);
+  text-transform: capitalize;
+  font-style: italic;
+  background-color: wheat;
+}
 
-.menu {
+/* header */
+header {
   position: fixed;
   top: 0;
   left: 0;
-  max-width: 25%;
+  z-index: 1;
+  width: 100%;
 }
 
-.nav-wrap {
+.menu {
   display: flex;
   flex-direction: column;
-  padding: 1em;
+  padding-left: calc(var(--p-width));
+  padding-right: calc(var(--p-width));
   font-weight: 500;
+  align-items: start;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  /* width: var(--p-width); */
+  padding: 10px;
+  width: 100%;
+}
+
+.nav-list li {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 3em;
+}
+
+.nav-list li a {
+  background-color: white;
+}
+
+.nav-list li:nth-child(1n) {
+  transform: translateX(0%);
+}
+.nav-list li:nth-child(2n) {
+  transform: translateX(calc(33%));
+}
+.nav-list li:nth-child(3n) {
+  transform: translateX(calc(-33%));
+}
+.nav-list li:nth-child(4n) {
+  transform: translateX(calc(66%));
+}
+.nav-list li:nth-child(5n) {
+  transform: translateX(calc(-66%));
+}
+.nav-list li:nth-child(6n) {
+  transform: translateX(calc(33%));
+}
+.nav-list li:nth-child(7n) {
+  transform: translateX(calc(-33%));
+}
+.nav-list li:nth-child(8n) {
+  transform: translateX(0%);
 }
 
 .lang-sw a {
@@ -56,6 +143,36 @@ main {
   margin-bottom: 1em;
 }
 
+/* ///////////////// */
+/* gallery */
+.gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-wrap {
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-wrap img {
+  filter: blur(20px);
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: filter 4s ease;
+}
+
+.gallery-wrap img:hover {
+  filter: blur(0);
+}
 /* highlight tool */
 ::-moz-selection {
   /* Code for Firefox */
