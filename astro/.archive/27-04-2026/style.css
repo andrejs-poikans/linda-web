@@ -34,7 +34,7 @@ body {
   --sec-highlight: #ad6f69;
   background-color: var(--background);
   color: var(--body);
-  --sml-pad: 10px;
+  --sml-pad: 2em;
 }
 
 /* canvas */
@@ -69,7 +69,7 @@ header {
   top: 0;
   right: 0;
   z-index: 1;
-  width: 33.33%;
+  width: 50%;
   height: 100%;
   padding-top: var(--sml-pad);
   padding-bottom: var(--sml-pad);
@@ -78,9 +78,8 @@ header {
 .menu {
   display: flex;
   flex-direction: column;
-
-  padding-left: var(--sml-pad);
-  padding-right: var(--sml-pad);
+  padding-left: calc(var(--p-width));
+  padding-right: calc(var(--p-width));
   font-weight: 500;
   align-items: start;
   height: 100%;
@@ -91,12 +90,12 @@ header {
   display: flex;
   flex-direction: column;
   /* width: var(--p-width); */
-  /* padding: 10px; */
+  padding: 10px;
   width: 100%;
 }
 
 .nav-list li {
-  width: fit-content;
+  width: 100%;
   text-align: center;
   margin-bottom: 3em;
 }
@@ -106,23 +105,30 @@ header {
 }
 
 .nav-list li:nth-child(1n) {
-  padding-left: 33%;
+  transform: translateX(0%);
 }
 .nav-list li:nth-child(2n) {
-  padding-left: calc(33% / 2);
+  transform: translateX(calc(33%));
 }
 .nav-list li:nth-child(3n) {
-  padding-left: calc(33% * 2);
+  transform: translateX(calc(-33%));
 }
 .nav-list li:nth-child(4n) {
-  padding-left: calc(33%);
+  transform: translateX(calc(66%));
 }
 .nav-list li:nth-child(5n) {
-  padding-left: calc(33% / 2);
+  transform: translateX(calc(-66%));
 }
 .nav-list li:nth-child(6n) {
-  padding-left: calc(33%);
+  transform: translateX(calc(33%));
 }
+.nav-list li:nth-child(7n) {
+  transform: translateX(calc(-33%));
+}
+.nav-list li:nth-child(8n) {
+  transform: translateX(0%);
+}
+
 .lang-sw a {
   color: var(--sec-highlight);
 }
@@ -133,14 +139,10 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: start;
-  width: 66.66%;
-  padding: var(--sml-pad);
-}
-
-main p img {
-  max-width: 2em;
-  max-height: 2em;
-  display: inline-block;
+  padding-top: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1000px;
 }
 
 .pagetitle {
