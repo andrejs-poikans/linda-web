@@ -13,7 +13,7 @@ collections:
     slug: "{{title}}"
 
     nested:
-      depth: 100
+      depth: 10
       summary: "{{title}}"
       subfolders: true
 
@@ -78,7 +78,7 @@ collections:
     slug: "{{title}}"
 
     nested:
-      depth: 100
+      depth: 10
       summary: "{{title}}"
       subfolders: true
 
