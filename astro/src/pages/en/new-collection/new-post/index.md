@@ -4,9 +4,10 @@ lang: en
 title: a new post
 gallery:
   - image: /images/cerība-fragments.jpg
-    alt: "Cerība fragments"
+    alt: Cerība fragments
   - image: /images/debesu-mīlestība.jpg
-    alt: "Debesu mīlestība"
+    alt: Debesu mīlestība
 ---
-
 test post
+
+this is a test for instant deployment
