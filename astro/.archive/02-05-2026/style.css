@@ -69,8 +69,8 @@ header {
   top: 0;
   right: 0;
   z-index: 1;
-  /* width: 33.33%; */
-  width: 100%;
+  width: 33.33%;
+  /* width: 100%; */
   height: 100%;
   padding-top: var(--sml-pad);
   padding-bottom: var(--sml-pad);
@@ -80,64 +80,54 @@ header {
 .menu {
   display: flex;
   flex-direction: column;
+
   padding-left: var(--sml-pad);
   padding-right: var(--sml-pad);
   font-weight: 500;
   align-items: start;
   height: 100%;
   border-left: 1px solid var(--highlight);
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 .nav-list {
   position: absolute;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  display: flex;
+  flex-direction: column;
+  /* width: var(--p-width); */
+  /* padding: 10px; */
   width: 100%;
 }
 
 .nav-list li {
+  position: relative;
   width: fit-content;
   text-align: center;
   margin-bottom: 3em;
-  justify-self: start;
 }
 
 .nav-list li a {
-  pointer-events: auto;
-  background-color: white;
-}
-
-.nav-list li h1 {
-  pointer-events: auto;
   background-color: white;
 }
 
 .nav-list li:nth-child(1n) {
-  grid-column-start: 3;
-  grid-column-end: 6;
+  left: 33%;
 }
 .nav-list li:nth-child(2n) {
-  grid-column-start: 1;
-  grid-column-end: 6;
+  left: calc(33% / 2);
 }
 .nav-list li:nth-child(3n) {
-  grid-column-start: 5;
-  grid-column-end: 6;
+  left: calc(33% * 2);
 }
 .nav-list li:nth-child(4n) {
-  grid-column-start: 3;
-  grid-column-end: 6;
+  left: calc(33%);
 }
 .nav-list li:nth-child(5n) {
-  grid-column-start: 5;
-  grid-column-end: 6;
+  left: calc(33% / 2);
 }
 .nav-list li:nth-child(6n) {
-  grid-column-start: 4;
-  grid-column-end: 6;
+  left: calc(33%);
 }
-
 .lang-sw a {
   color: var(--sec-highlight);
 }
@@ -186,7 +176,7 @@ main p img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  transition: filter 7s ease;
+  transition: filter 4s ease;
 }
 
 .gallery-wrap img:hover {
@@ -225,27 +215,3 @@ main p img {
 .home-wrap::-webkit-scrollbar {
   display: none;
 }
-
-/* transition animation */
-/* @keyframes bump-down {
-  0% {
-    transform: translateY(0vh);
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(100vh);
-  }
-}
-
-@keyframes bump-up {
-  0% {
-    transform: translateY(-100vh);
-
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0vh);
-  }
-} */

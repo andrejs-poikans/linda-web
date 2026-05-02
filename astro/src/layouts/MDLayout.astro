@@ -2,6 +2,25 @@
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 const { frontmatter } = Astro.props;
+
+// const anim = {
+//   old: {
+//     name: "bump-down",
+//     duration: "0.1s",
+//     easing: "ease-in",
+//     // direction: "reverse",
+//   },
+//   new: {
+//     name: "bump-up",
+//     duration: "0.1s",
+//     easing: "ease-in",
+//   },
+// };
+
+// const customTransition = {
+//   forwards: anim,
+//   backwards: anim,
+// };
 ---
 
 <Layout pageTitle={frontmatter.title} lang={frontmatter.lang}>

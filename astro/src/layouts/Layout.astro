@@ -3,6 +3,7 @@ const { lang, title } = Astro.props;
 import "../assets/css/style.css";
 import "../assets/css/reset.css";
 import Header from "../components/Header.astro";
+// import { ClientRouter } from "astro:transitions";
 
 const name = "Linda Mence";
 const defaultLang = "en";
@@ -57,6 +58,7 @@ import "@fontsource-variable/eb-garamond/wght-italic.css";
     </script>
   </head>
   <body>
+    <!-- <ClientRouter /> -->
     <Header lang={lang ? lang : defaultLang} />
     <!-- slot -->
     <div class="canvas"></div>
