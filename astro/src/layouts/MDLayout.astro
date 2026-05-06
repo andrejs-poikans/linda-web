@@ -26,7 +26,13 @@ const { frontmatter } = Astro.props;
       }
     </div>
 
-    <!-- build gallery if it exists -->
+    <!-- md body mandatory -->
+    <div class="md-body">
+      <slot />
+    </div>
+  </main>
+
+   <!-- build gallery if it exists -->
     {
       frontmatter.gallery && (
         <div class="gallery">
@@ -49,7 +55,4 @@ const { frontmatter } = Astro.props;
         </div>
       )
     }
-    <!-- md body mandatory -->
-    <slot />
-  </main>
 </Layout>

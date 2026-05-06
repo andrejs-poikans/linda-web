@@ -26,6 +26,9 @@ const postsByGroup = allPosts.reduce(
 
 <header>
   <div class="menu">
+    <div class="handle">
+      <button class="dot"><span class="dot-figure"></span></button>
+    </div>
     <ul class="nav-list">
       <li class="home"><a href="/"><h1>Linda Mence</h1></a></li>
 
@@ -53,3 +56,48 @@ const postsByGroup = allPosts.reduce(
     </ul>
   </div>
 </header>
+
+<script is:inline>
+  const button = document.querySelector(".dot");
+  const menu = document.querySelector(".menu");
+
+  // restore state on load
+  if (localStorage.getItem("menuOpen") === "true") {
+    menu.classList.add("open");
+  }
+
+  button.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menu.classList.toggle("open");
+
+    // save state
+    localStorage.setItem("menuOpen", menu.classList.contains("open"));
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!menu.contains(e.target)) {
+      menu.classList.remove("open");
+      localStorage.setItem("menuOpen", "false");
+    }
+  });
+
+  document.querySelectorAll(".nav-list a").forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const href = link.getAttribute("href");
+
+      // save current state BEFORE navigating
+      localStorage.setItem("menuOpen", menu.classList.contains("open"));
+
+      menu.classList.remove("open");
+
+      if (!menu.contains(e.target)) {
+        setTimeout(() => {
+          window.location.href = href;
+        }, 500);
+      } else {
+        window.location.href = href;
+      }
+    });
+  });
+</script>
