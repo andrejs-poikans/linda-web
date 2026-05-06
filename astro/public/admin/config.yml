@@ -6,6 +6,21 @@ media_folder: "/astro/public/images"
 public_folder: "/images"
 
 collections:
+  - name: "menu"
+    label: "Menu"
+    files:
+      - file: "src/data/menu.json"
+        label: "Main Menu"
+        name: "main_menu"
+        fields:
+          - label: "Items"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+
   - name: "pages_en"
     label: "Pages (EN)"
     folder: "astro/src/pages/en"
