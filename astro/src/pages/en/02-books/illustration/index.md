@@ -1,6 +1,7 @@
 ---
 layout: /src/layouts/MDLayout.astro
 lang: en
+section title: Books
 title: illustration
 gallery: []
 ---
