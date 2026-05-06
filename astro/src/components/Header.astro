@@ -48,7 +48,7 @@ allPosts.forEach((post: any) => {
       {
         Object.entries(postsByGroup).map(([group, posts]: any) => (
           <>
-            <li>
+            <li class={group}>
               <div class="section">
                 {posts.length >= 2 && <h1>{group}</h1>}
 

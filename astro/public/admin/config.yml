@@ -64,6 +64,11 @@ collections:
         widget: "hidden"
         default: "en"
 
+      - label: "Section Title (if more than 1 items in a group)"
+        name: "section title"
+        required: true
+        widget: "string"
+
       - label: "Title"
         name: "title"
         widget: "string"
@@ -128,6 +133,11 @@ collections:
         name: "lang"
         widget: "hidden"
         default: "lv"
+
+      - label: "Section Title (if more than 1 items in a group)"
+        name: "section title"
+        required: true
+        widget: "string"
 
       - label: "Title"
         name: "title"
