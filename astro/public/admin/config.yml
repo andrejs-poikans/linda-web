@@ -38,24 +38,6 @@ collections:
         name: "title"
         widget: "string"
 
-      - label: "Order"
-        name: "order"
-        widget: "number"
-        required: false
-        hint: "Controls order within a group (lower = earlier)"
-
-      - label: "Group"
-        name: "group"
-        widget: "string"
-        required: false
-        hint: "Overrides folder-based group name (optional)"
-
-      - label: "Group Order"
-        name: "groupOrder"
-        widget: "number"
-        required: false
-        hint: "Controls order of groups (lower = earlier)"
-
       # for proper URL generation, we need a separate slug field that doesn't allow uppercase letters or accents
       # - label: "Slug"
       #   name: "slug"
@@ -120,24 +102,6 @@ collections:
       - label: "Title"
         name: "title"
         widget: "string"
-
-      - label: "Order"
-        name: "order"
-        widget: "number"
-        required: false
-        hint: "Controls order within a group (lower = earlier)"
-
-      - label: "Group"
-        name: "group"
-        widget: "string"
-        required: false
-        hint: "Overrides folder-based group name (optional)"
-
-      - label: "Group Order"
-        name: "groupOrder"
-        widget: "number"
-        required: false
-        hint: "Controls order of groups (lower = earlier)"
 
       # for proper URL generation, we need a separate slug field that doesn't allow uppercase letters or accents
       # - label: "Slug"
