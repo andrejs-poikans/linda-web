@@ -1,7 +1,7 @@
 ---
 layout: /src/layouts/MDLayout.astro
 lang: en
-section title: Books
+sectionTitle: Books
 title: poetry
 ---
 

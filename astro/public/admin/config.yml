@@ -6,36 +6,6 @@ media_folder: "/astro/public/images"
 public_folder: "/images"
 
 collections:
-  # - name: "menu_en"
-  #   label: "Menu (EN)"
-  #   files:
-  #     - file: "src/data/menu_en.json"
-  #       label: "Main Menu (English)"
-  #       name: "main_menu_en"
-  #       fields:
-  #         - label: "Items"
-  #           name: "items"
-  #           widget: "list"
-  #           summary: "{{fields.title}}"
-  #           fields:
-  #             - { label: "Title", name: "title", widget: "string" }
-  #             - { label: "URL", name: "url", widget: "string" }
-
-  # - name: "menu_lv"
-  #   label: "Menu (LV)"
-  #   files:
-  #     - file: "src/data/menu_lv.json"
-  #       label: "Main Menu (Latvian)"
-  #       name: "main_menu_lv"
-  #       fields:
-  #         - label: "Items"
-  #           name: "items"
-  #           widget: "list"
-  #           summary: "{{fields.title}}"
-  #           fields:
-  #             - { label: "Title", name: "title", widget: "string" }
-  #             - { label: "URL", name: "url", widget: "string" }
-
   - name: "pages_en"
     label: "Pages (EN)"
     folder: "astro/src/pages/en"
@@ -65,32 +35,13 @@ collections:
         default: "en"
 
       - label: "Section Title (if more than 1 items in a group)"
-        name: "section title"
+        name: "sectionTitle"
         required: true
         widget: "string"
 
       - label: "Title"
         name: "title"
         widget: "string"
-
-      # for proper URL generation, we need a separate slug field that doesn't allow uppercase letters or accents
-      # - label: "Slug"
-      #   name: "slug"
-      #   widget: "string"
-      #   slug: "{{slug}}"
-      #   preview_path: "{{slug}}"
-      #   required: true
-      #   hint: "Auto-generated from title. Use lowercase, no accents."
-      #   pattern:
-      #     [
-      #       "^[a-z0-9-/]+$",
-      #       "Only lowercase letters, numbers, dashes and / allowed",
-      #     ]
-
-      - label: "Featured image"
-        name: "featuredImage"
-        widget: "image"
-        required: false
 
       - label: "Gallery"
         name: "gallery"
@@ -135,32 +86,13 @@ collections:
         default: "lv"
 
       - label: "Section Title (if more than 1 items in a group)"
-        name: "section title"
+        name: "sectionTitle"
         required: true
         widget: "string"
 
       - label: "Title"
         name: "title"
         widget: "string"
-
-      # for proper URL generation, we need a separate slug field that doesn't allow uppercase letters or accents
-      # - label: "Slug"
-      #   name: "slug"
-      #   widget: "string"
-      #   slug: "{{slug}}"
-      #   preview_path: "{{slug}}"
-      #   required: true
-      #   hint: "Auto-generated from title. Use lowercase, no accents."
-      #   pattern:
-      #     [
-      #       "^[a-z0-9-/]+$",
-      #       "Only lowercase letters, numbers, dashes and / allowed",
-      #     ]
-
-      - label: "Featured image"
-        name: "featuredImage"
-        widget: "image"
-        required: false
 
       - label: "Gallery"
         name: "gallery"

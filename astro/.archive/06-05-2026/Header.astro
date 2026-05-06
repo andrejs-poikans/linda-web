@@ -1,5 +1,8 @@
 ---
+import BlogPost from "../components/BlogPost.astro";
+
 const { lang } = Astro.props;
+
 const otherLang = lang === "en" ? "lv" : "en";
 
 const allPostsEn = Object.values(
@@ -11,17 +14,25 @@ const allPostsLv = Object.values(
 );
 
 const allPosts = (lang === "en" ? allPostsEn : allPostsLv).filter(
-  (post: any) => post.url.split("/").filter(Boolean).length > 1,
+  (post: any) => {
+    const segments = post.url.split("/").filter(Boolean);
+    return segments.length > 1; // ignores root index
+  },
 );
 
-const postsByGroup = allPosts.reduce(
-  (groups: Record<string, any[]>, post: any) => {
-    const group = post.url.split("/").filter(Boolean)[1] || "*";
-    (groups[group] ??= []).push(post);
-    return groups;
-  },
-  {} as Record<string, any[]>,
-);
+const postsByGroup: Record<string, any[]> = {};
+
+allPosts.forEach((post: any) => {
+  const segments = post.url.split("/").filter(Boolean);
+
+  const group: string = segments[1] || "*";
+
+  if (!postsByGroup[group]) {
+    postsByGroup[group] = [];
+  }
+
+  postsByGroup[group].push(post);
+});
 ---
 
 <header>
@@ -29,19 +40,20 @@ const postsByGroup = allPosts.reduce(
     <ul class="nav-list">
       <li class="home"><a href="/"><h1>Linda Mence</h1></a></li>
 
+      <!-- {
+          allPosts.map((post: any) => (
+            <BlogPost url={post.url} title={post.frontmatter.title} />
+          ))
+        } -->
       {
         Object.entries(postsByGroup).map(([group, posts]: any) => (
           <>
             <li class={group}>
               <div class="section">
-                {posts[0]?.frontmatter?.sectionTitle && (
-                  <h1>{posts[0].frontmatter.sectionTitle}</h1>
-                )}
+                {posts.length >= 2 && <h1>{group}</h1>}
 
                 {posts.map((post: any) => (
-                  <h2>
-                    <a href={post.url}>{post.frontmatter.title}</a>
-                  </h2>
+                  <BlogPost url={post.url} title={post.frontmatter.title} />
                 ))}
               </div>
             </li>
