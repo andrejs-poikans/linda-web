@@ -6,12 +6,27 @@ media_folder: "/astro/public/images"
 public_folder: "/images"
 
 collections:
-  - name: "menu"
-    label: "Menu"
+  - name: "menu_en"
+    label: "Menu (EN)"
     files:
-      - file: "src/data/menu.json"
-        label: "Main Menu"
-        name: "main_menu"
+      - file: "src/data/menu_en.json"
+        label: "Main Menu (English)"
+        name: "main_menu_en"
+        fields:
+          - label: "Items"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+
+  - name: "menu_lv"
+    label: "Menu (LV)"
+    files:
+      - file: "src/data/menu_lv.json"
+        label: "Main Menu (Latvian)"
+        name: "main_menu_lv"
         fields:
           - label: "Items"
             name: "items"

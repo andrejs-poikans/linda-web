@@ -1,0 +1,16 @@
+{
+  "items": [
+    {
+      "title": "Sākums",
+      "url": "/"
+    },
+    {
+      "title": "Par",
+      "url": "/lv/par"
+    },
+    {
+      "title": "Grāmatas",
+      "url": "/lv/grāmatas"
+    }
+  ]
+}
