@@ -188,11 +188,15 @@ main p img {
   flex-direction: column;
   align-items: center;
   position: fixed;
-  top: 0;
-  left: 0;
+  bottom: var(--sml-pad);
+  left: var(--sml-pad);
   z-index: 0;
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
+
+  width: 200px;
+  height: 200px;
+  border: solid 1px var(--body);
 }
 
 .gallery-wrap {
@@ -201,7 +205,7 @@ main p img {
 }
 
 .gallery-wrap img {
-  filter: blur(20px);
+  filter: blur(2px);
   width: 100%;
   height: 100%;
   object-fit: contain;
