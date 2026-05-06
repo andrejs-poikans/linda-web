@@ -69,37 +69,41 @@ header {
   top: 0;
   right: 0;
   z-index: 1;
-  /* width: 33.33%; */
-  width: 100%;
+  width: 500px;
   height: 100%;
   padding-top: var(--sml-pad);
   padding-bottom: var(--sml-pad);
+  padding-left: var(--sml-pad);
+  padding-right: var(--sml-pad);
   pointer-events: none;
 }
 
 .menu {
   display: flex;
   flex-direction: column;
-  padding-left: var(--sml-pad);
-  padding-right: var(--sml-pad);
   font-weight: 500;
   align-items: start;
   height: 100%;
-  border-left: 1px solid var(--highlight);
+  /* border-left: 1px solid var(--highlight); */
   pointer-events: none;
+  /* background-color: #0070b8; */
+  position: relative;
 }
 
 .nav-list {
+  padding-top: var(--sml-pad);
   position: absolute;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   width: 100%;
+  box-sizing: border-box;
+  background-color: green;
 }
 
 .nav-list li {
   width: fit-content;
   text-align: center;
-  margin-bottom: 3em;
+  margin-bottom: 1em;
   justify-self: start;
 }
 
@@ -114,32 +118,47 @@ header {
 }
 
 .nav-list li:nth-child(1n) {
-  grid-column-start: 3;
-  grid-column-end: 6;
+  grid-column-start: 4;
+  text-align: center;
+  justify-self: center;
 }
 .nav-list li:nth-child(2n) {
-  grid-column-start: 1;
-  grid-column-end: 6;
+  grid-column-start: 3;
+  text-align: right;
+  justify-self: end;
 }
 .nav-list li:nth-child(3n) {
   grid-column-start: 5;
-  grid-column-end: 6;
+  text-align: left;
+  justify-self: start;
 }
 .nav-list li:nth-child(4n) {
-  grid-column-start: 3;
-  grid-column-end: 6;
+  grid-column-start: 2;
+  text-align: right;
+  justify-self: end;
 }
 .nav-list li:nth-child(5n) {
-  grid-column-start: 5;
-  grid-column-end: 6;
+  grid-column-start: 6;
+  text-align: left;
+  justify-self: start;
 }
 .nav-list li:nth-child(6n) {
-  grid-column-start: 4;
-  grid-column-end: 6;
+  grid-column-start: 1;
+  text-align: right;
+  justify-self: end;
+}
+
+.nav-list li:nth-child(7n) {
+  grid-column-start: 7;
+  text-align: left;
+  justify-self: start;
 }
 
 .lang-sw a {
   color: var(--sec-highlight);
+  border: 1px solid var(--highlight);
+  border-radius: 50%;
+  padding: 0.25em;
 }
 
 /* main */
