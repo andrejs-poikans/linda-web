@@ -1,6 +1,7 @@
 ---
 layout: /src/layouts/MDLayout.astro
 lang: lv
+section title: Grāmatas
 title: dzeja
 ---
 
