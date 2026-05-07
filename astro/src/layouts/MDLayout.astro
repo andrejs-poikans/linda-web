@@ -1,11 +1,15 @@
 ---
 import { Image } from "astro:assets";
+import { Masonry } from 'astro-masonry';
 import Layout from "../layouts/Layout.astro";
 const { frontmatter } = Astro.props;
 ---
 
 <Layout pageTitle={frontmatter.title} lang={frontmatter.lang}>
   <main>
+
+    { frontmatter.title !== "index" && (
+    <>
     <!-- not mandatory -->
     <div class="path">
       {
@@ -25,17 +29,29 @@ const { frontmatter } = Astro.props;
         )
       }
     </div>
+    </>
+    )}
 
     <!-- md body mandatory -->
     <div class="md-body">
       <slot />
     </div>
-  </main>
 
-   <!-- build gallery if it exists -->
+     <!-- build gallery if it exists -->
     {
       frontmatter.gallery && (
-        <div class="gallery">
+      <div class="gallery">
+      <Masonry
+      breakpointCols={{
+        default: 4,
+        1100: 3,
+        700: 2,
+        500: 1,
+
+      }}
+      debug= {true}
+      sortByHeight={true}
+          >
           {frontmatter.gallery.map((item: any) => {
             if (!item?.image) return null;
 
@@ -46,13 +62,18 @@ const { frontmatter } = Astro.props;
                   src={item.image}
                   alt={item.alt || ""}
                   loading="lazy"
-                  width="900"
+                  width="700"
                   quality="high"
                 />
+                <button class="expand"></button>
               </div>
             );
           })}
+          </Masonry>
         </div>
       )
     }
+  </main>
+
+  
 </Layout>
