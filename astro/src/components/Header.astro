@@ -1,4 +1,6 @@
 ---
+import Logo from "/public/svg/bookmark.svg";
+
 const { lang } = Astro.props;
 const otherLang = lang === "en" ? "lv" : "en";
 
@@ -28,6 +30,9 @@ const postsByGroup = allPosts.reduce(
   <div class="menu">
     <div class="handle">
       <button class="dot"><span class="dot-figure"></span></button>
+    </div>
+    <div class="bookmark">
+      <Logo fill="black" />
     </div>
     <ul class="nav-list">
       <li class="home"><a href={`/${lang}`}><h1>Linda Mence</h1></a></li>
