@@ -58,7 +58,7 @@ body {
   width: 100dvw;
 }
 
-.upper-canvas {
+/* .upper-canvas {
   filter: blur(200px);
   background-color: var(--background);
   position: fixed;
@@ -67,7 +67,7 @@ body {
   z-index: -1;
   height: 80dvh;
   width: 80dvw;
-}
+} */
 
 .upper-layer {
   background-color: transparent;
@@ -253,8 +253,8 @@ main {
 .gallery-wrap {
   width: 100%;
   height: 100%;
-  border: solid 3px white;
   display: flex;
+  margin-bottom: var(--sml-pad);
 }
 
 .gallery-wrap img {

@@ -50,7 +50,6 @@ const { frontmatter } = Astro.props;
 
       }}
       debug= {true}
-      sortByHeight={true}
           >
           {frontmatter.gallery.map((item: any) => {
             if (!item?.image) return null;
