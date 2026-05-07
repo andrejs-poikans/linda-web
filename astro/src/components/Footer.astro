@@ -1,12 +1,14 @@
 ---
 const { lang } = Astro.props;
-const comment = lang === "en" ? "accessibility view" : "pieejamības skats";
+const aView = lang === "en" ? "accessibility view" : "pieejamības skats";
+const rView = lang === "en" ? "regular view" : "parasts skats";
 ---
 
 <footer>
   <div class="reading-view">
     <button class="reading-toggle">
-      <span>{comment}</span>
+      <span class="a-view">{aView}</span>
+      <span class="r-view">{rView}</span>
       <span class="dot-figure"></span>
     </button>
   </div>
@@ -14,19 +16,31 @@ const comment = lang === "en" ? "accessibility view" : "pieejamības skats";
 
 <script is:inline>
   const readingToggle = document.querySelector(".reading-toggle");
-  const body = document.querySelector("body");
+  const aViewEl = document.querySelector(".a-view");
+  const rViewEl = document.querySelector(".r-view");
+  const body = document.body;
+
+  function setMode(isReading) {
+    if (isReading) {
+      body.classList.add("reading");
+      aViewEl.style.display = "none";
+      rViewEl.style.display = "inline-block";
+    } else {
+      body.classList.remove("reading");
+
+      aViewEl.style.display = "inline-block";
+      rViewEl.style.display = "none";
+    }
+
+    localStorage.setItem("readingMode", String(isReading));
+  }
 
   // restore state on page load
   const isReading = localStorage.getItem("readingMode") === "true";
-
-  if (isReading) {
-    body.classList.add("reading");
-  }
+  setMode(isReading);
 
   readingToggle?.addEventListener("click", () => {
-    const nowReading = body.classList.toggle("reading");
-
-    // persist state
-    localStorage.setItem("readingMode", nowReading);
+    const nowReading = !body.classList.contains("reading");
+    setMode(nowReading);
   });
 </script>

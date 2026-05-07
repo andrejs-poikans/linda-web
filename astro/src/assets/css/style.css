@@ -58,6 +58,10 @@ body.reading a {
   color: green;
 }
 
+body.reading button {
+  color: green;
+}
+
 body.reading h1::first-letter {
   font-family: var(--primary-font);
   font-style: normal;
@@ -101,6 +105,11 @@ h1::first-letter {
 
 p {
   line-height: 1.4em;
+}
+
+button {
+  cursor: pointer;
+  color: var(--highlight);
 }
 
 /* header */
@@ -277,8 +286,8 @@ main {
 }
 
 .md-body p img {
-  max-width: 2em;
-  max-height: 2em;
+  /* max-width: 3em;
+  max-height: 3em; */
   display: inline-block;
 }
 
@@ -322,4 +331,11 @@ footer {
   position: fixed;
   bottom: var(--sml-pad);
   right: var(--sml-pad);
+}
+
+.reading-toggle {
+  display: flex;
+  flex-direction: row;
+  gap: var(--sml-pad);
+  align-items: baseline;
 }
