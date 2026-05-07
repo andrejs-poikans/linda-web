@@ -84,8 +84,8 @@ body.reading .handle {
   top: 0;
   left: 0;
   z-index: -2;
-  height: 100dvh;
-  width: 100dvw;
+  height: 100vh;
+  width: 100vw;
 }
 
 /* general text style */
@@ -338,4 +338,14 @@ footer {
   flex-direction: row;
   gap: var(--sml-pad);
   align-items: baseline;
+}
+
+@media screen and (max-width: 500px),
+  screen and (max-height: 500px) and (orientation: landscape) {
+  body:has(.md-body:hover) .gallery-wrap img {
+    filter: blur(0);
+  }
+  .menu {
+    background-color: var(--background);
+  }
 }
