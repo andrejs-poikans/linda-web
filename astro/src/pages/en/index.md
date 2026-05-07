@@ -5,6 +5,6 @@ title: index
 gallery:
   - image: /images/debesu-mīlestība.jpg
     alt: rafaels
-  - image: /images/cerība-fragments.jpg
+  - image: /images/cerība-fragments.jpg
     alt: kaut kas cits
 ---
