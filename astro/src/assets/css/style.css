@@ -14,11 +14,17 @@
   src: url("/fonts/FD_Garamondt/Garamondt-Regular.woff") format("woff");
 }
 
-/* to reduce shakeing effect when scrolling*/
-/* html,
-body {
-  overscroll-behavior: none;
-} */
+/* highlight tool */
+::-moz-selection {
+  /* Code for Firefox */
+  background: lavender;
+  color: coral;
+}
+
+::selection {
+  background: lavender;
+  color: coral;
+}
 
 body {
   --primary-font: "EB Garamond Variable", serif;
@@ -31,7 +37,6 @@ body {
   --background: lavender;
   --base: white;
   --body: #ff3855;
-  /* --highlight: #7b68ee; */
   --highlight: #0070b8;
   --sec-highlight: #ad6f69;
   --third-highlight: wheat;
@@ -208,7 +213,6 @@ header {
 }
 
 /* main */
-/* need to check width */
 main {
   display: grid;
   width: 100%;
@@ -273,38 +277,4 @@ main {
 .astro-masonry-grid_column {
   width: 25%;
   /* Your custom column styles */
-}
-
-/* highlight tool */
-::-moz-selection {
-  /* Code for Firefox */
-  background: lavender;
-  color: coral;
-}
-
-::selection {
-  background: lavender;
-  color: coral;
-}
-
-.block {
-  display: flex;
-  flex-direction: column;
-  max-width: 100%;
-  width: 400px;
-  max-height: auto;
-}
-
-.text-box {
-  height: fit-content;
-  width: fit-content;
-}
-
-.item {
-  padding-bottom: 20px;
-}
-
-/* Hide scrollbar for Chrome, Safari and Opera */
-.home-wrap::-webkit-scrollbar {
-  display: none;
 }
