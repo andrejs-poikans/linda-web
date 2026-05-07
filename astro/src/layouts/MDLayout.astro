@@ -3,12 +3,11 @@ import { Masonry } from 'astro-masonry';
 import Layout from "../layouts/Layout.astro";
 const { frontmatter } = Astro.props;
 
-
 const slotContent = await Astro.slots.render('default');
 const hasContent = slotContent.trim().length > 0;
 ---
 
-<Layout pageTitle={frontmatter.title} lang={frontmatter.lang}>
+<Layout title={frontmatter.title} lang={frontmatter.lang}>
   <main>
 
     <Masonry

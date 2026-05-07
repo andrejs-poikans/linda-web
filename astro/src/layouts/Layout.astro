@@ -22,10 +22,44 @@ import "@fontsource-variable/eb-garamond/wght-italic.css";
     <meta name="generator" content={Astro.generator} />
 
     <!-- SEO -->
-    <title>{title ? `${name}: ${title}` : name}</title>
+    <title>{title !== "index" ? `${name}: ${title}` : name}</title>
+    <meta
+      name="meta-title"
+      content={title !== "index" ? `${name}: ${title}` : name}
+    />
+    <meta
+      name="description"
+      content={title !== "index" ? `${name}: ${title}` : name}
+    />
+    <link rel="canonical" href={Astro.url.href} />
+
+    <meta
+      property="og:title"
+      content={title !== "index" ? `${name}: ${title}` : name}
+    />
+    <meta
+      property="og:description"
+      content={title !== "index" ? `${name}: ${title}` : name}
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url.href} />
 
     <!-- favicon placement -->
-    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="/favicon/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
+    <meta name="apple-mobile-web-app-title" content="Linda Mence" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
 
     <link
       rel="preload"
@@ -53,7 +87,7 @@ import "@fontsource-variable/eb-garamond/wght-italic.css";
         window.location.replace("/admin/" + cleanHash);
       } else if (window.location.pathname === "/") {
         // your normal language redirect
-        window.location.replace("/en/");
+        window.location.replace("/lv/");
       }
     </script>
   </head>
