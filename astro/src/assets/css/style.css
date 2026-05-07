@@ -47,6 +47,32 @@ body {
   --sml-pad: 10px;
 }
 
+body.reading {
+  color: black;
+  font-size: 1.5em;
+  line-height: 1.8;
+  letter-spacing: 0.1em;
+}
+
+body.reading a {
+  color: green;
+}
+
+body.reading h1::first-letter {
+  font-family: var(--primary-font);
+  font-style: normal;
+  text-transform: capitalize;
+  background-color: transparent;
+}
+
+body.reading .menu {
+  background-color: transparent;
+}
+
+body.reading .handle {
+  display: none;
+}
+
 /* canvas */
 .canvas {
   background-color: var(--base);
@@ -56,28 +82,6 @@ body {
   z-index: -2;
   height: 100dvh;
   width: 100dvw;
-}
-
-/* .upper-canvas {
-  filter: blur(200px);
-  background-color: var(--background);
-  position: fixed;
-  top: 10dvh;
-  left: 10dvw;
-  z-index: -1;
-  height: 80dvh;
-  width: 80dvw;
-} */
-
-.upper-layer {
-  background-color: transparent;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 99;
-  height: 100dvh;
-  width: 100dvw;
-  overflow: scroll;
 }
 
 /* general text style */
@@ -127,10 +131,26 @@ header {
 }
 
 .bookmark svg {
-  fill: var(--sec-highlight);
+  fill: #763e39;
   height: 250px;
   width: auto;
 }
+
+.bookmark.active {
+  display: flex;
+}
+
+.nav-list.none {
+  display: none;
+}
+
+/* body:has(.handle:hover) .bookmark {
+  display: flex;
+}
+
+body:has(.handle:hover) .nav-list {
+  display: none;
+} */
 
 .handle {
   display: flex;
@@ -144,14 +164,6 @@ header {
 .dot {
   cursor: pointer;
   height: 100%;
-}
-
-body:has(.handle:hover) .bookmark {
-  display: flex;
-}
-
-body:has(.handle:hover) .nav-list {
-  display: none;
 }
 
 .dot-figure {
@@ -295,6 +307,7 @@ body:has(.md-body:hover) .gallery-wrap img {
   filter: blur(10px);
 }
 
+/* grid set-up */
 .astro-masonry-grid {
   width: 100%;
   gap: var(--sml-pad);
@@ -303,4 +316,10 @@ body:has(.md-body:hover) .gallery-wrap img {
 .astro-masonry-grid_column {
   width: 25%;
   /* Your custom column styles */
+}
+
+footer {
+  position: fixed;
+  bottom: var(--sml-pad);
+  right: var(--sml-pad);
 }

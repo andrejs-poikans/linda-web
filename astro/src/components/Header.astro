@@ -61,3 +61,14 @@ const postsByGroup = allPosts.reduce(
     </ul>
   </div>
 </header>
+
+<script is:inline>
+  const button = document.querySelector(".dot");
+  const bookmark = document.querySelector(".bookmark");
+  const navList = document.querySelector(".nav-list");
+
+  button.addEventListener("click", () => {
+    bookmark.classList.toggle("active");
+    navList.classList.toggle("none");
+  });
+</script>

@@ -1,9 +1,9 @@
 ---
-import Logo from "/public/svg/bookmark.svg";
 const { lang, title } = Astro.props;
 import "../assets/css/style.css";
 import "../assets/css/reset.css";
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 const name = "Linda Mence";
 const defaultLang = "en";
@@ -61,8 +61,8 @@ import "@fontsource-variable/eb-garamond/wght-italic.css";
     <Header lang={lang ? lang : defaultLang} />
     <!-- slot -->
     <slot />
+    <Footer lang={lang ? lang : defaultLang} />
 
-    <!-- <div class="upper-canvas"></div> -->
     <div class="canvas"></div>
   </body>
 </html>
