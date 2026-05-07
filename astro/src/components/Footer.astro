@@ -1,6 +1,6 @@
 ---
 const { lang } = Astro.props;
-const comment = lang === "en" ? "easy-reading" : "vieglai lasāmībai";
+const comment = lang === "en" ? "accessibility view" : "pieejamības skats";
 ---
 
 <footer>
@@ -16,7 +16,17 @@ const comment = lang === "en" ? "easy-reading" : "vieglai lasāmībai";
   const readingToggle = document.querySelector(".reading-toggle");
   const body = document.querySelector("body");
 
-  readingToggle.addEventListener("click", () => {
-    body.classList.toggle("reading");
+  // restore state on page load
+  const isReading = localStorage.getItem("readingMode") === "true";
+
+  if (isReading) {
+    body.classList.add("reading");
+  }
+
+  readingToggle?.addEventListener("click", () => {
+    const nowReading = body.classList.toggle("reading");
+
+    // persist state
+    localStorage.setItem("readingMode", nowReading);
   });
 </script>
