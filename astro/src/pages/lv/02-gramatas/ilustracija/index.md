@@ -12,6 +12,10 @@ gallery:
     alt: "3"
   - image: /images/pasaules-noliegšana.jpg
     alt: "4"
+  - image: /images/pazemība-process.jpg
+    alt: "5"
+  - image: /images/cerība-fragments.jpg
+    alt: "6"
 ---
 
 Gotholds Efraims Lesings. Nātans Gudrais. Tulk. Jānis Rainis, Rīga: Zinātne, 2024 [skatīt]()
