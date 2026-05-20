@@ -3,7 +3,9 @@ layout: /src/layouts/MDLayout.astro
 lang: en
 sectionTitle: Books
 title: illustration
-gallery: []
+gallery:
+  - image: /images/h-t-o-1-pazemiiba.jpg
+    alt: "1"
 ---
 Gotholds Efraims Lesings. Nātans Gudrais. Tulk. Jānis Rainis, Rīga: Zinātne, 2024 [look](https://satori.lv/book/natans-gudrais)
 
