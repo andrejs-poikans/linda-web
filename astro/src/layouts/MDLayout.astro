@@ -1,6 +1,7 @@
 ---
 import { Masonry } from 'astro-masonry';
 import Layout from "../layouts/Layout.astro";
+import Image from 'astro/components/Image.astro';
 const { frontmatter } = Astro.props;
 
 const slotContent = await Astro.slots.render('default');
@@ -63,10 +64,14 @@ const hasContent = slotContent.trim().length > 0;
 
                     return (
                       <div class="gallery-wrap">
-                        <img src={item.image}
+
+                        <Image src={item.image} alt={item.alt || ""}>
+                        </Image>
+
+                        {/* <img src={item.image}
                           alt={item.alt || ""}
                           loading="lazy" />
-                        <button class="expand"></button>
+                        <button class="expand"></button> */}
                       </div>
                     );
 
