@@ -316,6 +316,13 @@ main {
 
 /* ///////////////// */
 /* gallery */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
 .gallery {
   position: relative;
   width: 100%;
@@ -374,5 +381,9 @@ footer {
 
   body .handle {
     display: none;
+  }
+
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
