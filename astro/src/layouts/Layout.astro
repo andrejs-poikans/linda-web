@@ -4,6 +4,7 @@ import "../assets/css/style.css";
 import "../assets/css/reset.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { ClientRouter } from "astro:transitions";
 
 const name = "Linda Mence";
 const defaultLang = "en";
@@ -92,6 +93,7 @@ import "@fontsource-variable/eb-garamond/wght-italic.css";
     </script>
   </head>
   <body>
+    <ClientRouter fallback="swap" />
     <Header lang={lang ? lang : defaultLang} />
     <!-- slot -->
     <slot />

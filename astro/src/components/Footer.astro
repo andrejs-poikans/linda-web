@@ -15,32 +15,33 @@ const rView = lang === "en" ? "regular view" : "parasts skats";
 </footer>
 
 <script is:inline>
-  const readingToggle = document.querySelector(".reading-toggle");
-  const aViewEl = document.querySelector(".a-view");
-  const rViewEl = document.querySelector(".r-view");
-  const body = document.body;
+  function initReadingMode() {
+    const readingToggle = document.querySelector(".reading-toggle");
+    const aViewEl = document.querySelector(".a-view");
+    const rViewEl = document.querySelector(".r-view");
+    const body = document.body;
 
-  function setMode(isReading) {
-    if (isReading) {
-      body.classList.add("reading");
-      aViewEl.style.display = "none";
-      rViewEl.style.display = "inline-block";
-    } else {
-      body.classList.remove("reading");
+    if (!readingToggle || !aViewEl || !rViewEl) return;
 
-      aViewEl.style.display = "inline-block";
-      rViewEl.style.display = "none";
+    function setMode(isReading) {
+      body.classList.toggle("reading", isReading);
+      localStorage.setItem("readingMode", String(isReading));
     }
 
-    localStorage.setItem("readingMode", String(isReading));
+    // restore state
+    const isReading = localStorage.getItem("readingMode") === "true";
+    setMode(isReading);
+
+    // prevent duplicate listeners
+    readingToggle.onclick = () => {
+      const nowReading = !body.classList.contains("reading");
+      setMode(nowReading);
+    };
   }
 
-  // restore state on page load
-  const isReading = localStorage.getItem("readingMode") === "true";
-  setMode(isReading);
+  // initial load
+  initReadingMode();
 
-  readingToggle?.addEventListener("click", () => {
-    const nowReading = !body.classList.contains("reading");
-    setMode(nowReading);
-  });
+  // Astro view transitions
+  document.addEventListener("astro:page-load", initReadingMode);
 </script>

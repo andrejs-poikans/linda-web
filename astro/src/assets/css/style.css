@@ -47,6 +47,18 @@ body {
   --sml-pad: 10px;
 }
 
+.r-view {
+  display: none;
+}
+
+body.reading .a-view {
+  display: none;
+}
+
+body.reading .r-view {
+  display: inline-block;
+}
+
 body.reading {
   color: black;
   font-size: 1.5em;

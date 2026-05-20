@@ -12,6 +12,26 @@ const allPostsLv = Object.values(
   import.meta.glob(`/src/pages/lv/**/*.md`, { eager: true }),
 );
 
+const normalizePath = (path: string) => path.replace(/\/+$/, "");
+
+const collectGroups = (posts: any[]) =>
+  posts
+    .filter((post) => post.url)
+    .sort((a, b) => normalizePath(a.url).localeCompare(normalizePath(b.url)))
+    .reduce(
+      (groups: Record<string, any[]>, post: any) => {
+        const segments = post.url.split("/").filter(Boolean);
+        const group = segments[1] || "*";
+        const groupKey = group.split("-")[0];
+        (groups[groupKey] ??= []).push(post);
+        return groups;
+      },
+      {} as Record<string, any[]>,
+    );
+
+const groupsEn = collectGroups(allPostsEn);
+const groupsLv = collectGroups(allPostsLv);
+
 const allPosts = (lang === "en" ? allPostsEn : allPostsLv).filter(
   (post: any) => post.url.split("/").filter(Boolean).length > 1,
 );
@@ -24,6 +44,33 @@ const postsByGroup = allPosts.reduce(
   },
   {} as Record<string, any[]>,
 );
+
+const currentPath = normalizePath(Astro.url.pathname);
+const currentLang = lang === "en" ? "en" : "lv";
+const currentSegments = currentPath.split("/").filter(Boolean);
+const currentGroupKey = currentSegments[1]?.split("-")[0] ?? "";
+
+const sourceGroup =
+  currentLang === "en" ? groupsEn[currentGroupKey] : groupsLv[currentGroupKey];
+const targetGroup =
+  currentLang === "en" ? groupsLv[currentGroupKey] : groupsEn[currentGroupKey];
+
+const currentIndex = sourceGroup
+  ? sourceGroup.findIndex(
+      (post: any) => normalizePath(post.url) === currentPath,
+    )
+  : -1;
+
+let languageSwitchPath = `/${otherLang}`;
+if (currentIndex !== -1 && targetGroup && targetGroup[currentIndex]) {
+  languageSwitchPath = normalizePath(targetGroup[currentIndex].url);
+} else if (
+  currentPath === `/${currentLang}` ||
+  currentPath === `/${currentLang}/` ||
+  currentPath === "/"
+) {
+  languageSwitchPath = `/${otherLang}`;
+}
 ---
 
 <header>
@@ -57,18 +104,29 @@ const postsByGroup = allPosts.reduce(
         ))
       }
 
-      <li class="lang-sw"><a href={`/${otherLang}`}>{otherLang}</a></li>
+      <li class="lang-sw"><a href={languageSwitchPath}>{otherLang}</a></li>
     </ul>
   </div>
 </header>
 
 <script is:inline>
-  const button = document.querySelector(".dot");
-  const bookmark = document.querySelector(".bookmark");
-  const navList = document.querySelector(".nav-list");
+  if (!window.__headerMenuInitialized) {
+    window.__headerMenuInitialized = true;
 
-  button.addEventListener("click", () => {
-    bookmark.classList.toggle("active");
-    navList.classList.toggle("none");
-  });
+    const toggleMenu = () => {
+      const bookmark = document.querySelector(".bookmark");
+      const navList = document.querySelector(".nav-list");
+      if (!bookmark || !navList) return;
+      bookmark.classList.toggle("active");
+      navList.classList.toggle("none");
+    };
+
+    document.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      if (target.closest(".dot")) {
+        toggleMenu();
+      }
+    });
+  }
 </script>
