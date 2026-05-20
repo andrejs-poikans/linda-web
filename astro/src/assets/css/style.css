@@ -348,4 +348,8 @@ footer {
   .menu {
     background-color: var(--background);
   }
+
+  body .handle {
+    display: none;
+  }
 }
