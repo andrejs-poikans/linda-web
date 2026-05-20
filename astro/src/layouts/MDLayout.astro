@@ -18,7 +18,7 @@ const hasContent = slotContent.trim().length > 0;
         500: 1,
 
       }}
-      debug= {true}
+      debug= {false}
           >
             {
               hasContent && (
@@ -33,7 +33,7 @@ const hasContent = slotContent.trim().length > 0;
                   <div class="sectiontitle">
                     <h1>{frontmatter.sectionTitle}</h1>
                   </div>
-                  <span class="seperator">></span>
+                  <span class="seperator">> </span>
                 )
               }
               <!-- mandatory -->
@@ -65,7 +65,7 @@ const hasContent = slotContent.trim().length > 0;
                     return (
                       <div class="gallery-wrap">
 
-                        <Image src={item.image} alt={item.alt || ""}>
+                        <Image src={item.image} alt={item.alt || ""} loading="lazy">
                         </Image>
 
                         {/* <img src={item.image}
