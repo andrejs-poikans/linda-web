@@ -1,18 +1,18 @@
 ---
 import { Masonry } from 'astro-masonry';
 import Layout from "../layouts/Layout.astro";
-import Image from 'astro/components/Image.astro';
+import Picture from 'astro/components/Picture.astro';
 const { frontmatter } = Astro.props;
 
-const slotContent = await Astro.slots.render('default');
-const hasContent = slotContent.trim().length > 0;
 ---
 
 <Layout title={frontmatter.title} lang={frontmatter.lang}>
   <main>
-    <div class="grid">
+    <!-- <div class="grid"> -->
 
-    <!-- <Masonry
+    
+
+    <Masonry
       breakpointCols={{
         default: 3,
         700: 2,
@@ -20,24 +20,20 @@ const hasContent = slotContent.trim().length > 0;
 
       }}
       debug= {false}
-          > -->
-            {
-              hasContent && (
+          >
 
           <!-- md body mandatory -->
-          <div class="md-body">
-            { frontmatter.title !== "index" && (
-            <!-- not mandatory -->
+        { frontmatter.title !== "index" && (
+        <div class="md-body"> 
             <div class="path">
               {
                 frontmatter.sectionTitle && (
                   <div class="sectiontitle">
                     <h1>{frontmatter.sectionTitle}</h1>
                   </div>
-                  <span class="seperator">> </span>
+                  <span class="seperator">></span>
                 )
               }
-              <!-- mandatory -->
               {
                 frontmatter.title !== "index" && (
                   <div class="pagetitle">
@@ -46,40 +42,42 @@ const hasContent = slotContent.trim().length > 0;
                 )
               }
             </div>
-            )}
-
             <slot />
-
         </div>
-
-                      )
-              }
-
+        )}
 
              <!-- build gallery if it exists -->
             {
               frontmatter.gallery && (
                   <>
-                  {frontmatter.gallery.map((item: any) => {
+                  {frontmatter.gallery.map((item: any, index: number) => {
                     if (!item?.image) return null;
 
                     return (
                       <div class="gallery-wrap">
 
-                        {/* <Image src={item.image} alt={item.alt || ""} format="webp">
-                          <button class="expand"></button>
-                        </Image> */}
+                        <Picture 
+                        src={item.image} 
+                        alt={item.alt || ""} 
+                        format="webp"
+                        layout="constrained"
+                        fallbackFormat="jpg"
+                        quality={80}
+                        loading={index < 2 ? "eager" : "lazy"}
+                        inferSize={true}
+                        decoding="async"
+                        preload="webp"
+                        placeholder="blurred"
+                        includeSourceFormat={false}
+                        fadeInTransition={{
+                          delay: "0.5s",
+                          duration: "0.5s",
+                          timingFunction: "linear",
+                        }}>
+                        </Picture>
 
-                        <Image src={item.image} alt={item.alt || ""} format="webp" layout='constrained' width={640} loading='eager'>
-                          <button class="expand"></button>
-                        </Image>
-
-                        
-
-                        {/* <img src={item.image}
-                          alt={item.alt || ""}
-                          loading="lazy" />
-                        <button class="expand"></button> */}
+                      
+                        {/* <button class="expand"></button> */}
                       </div>
                     );
 
@@ -87,8 +85,8 @@ const hasContent = slotContent.trim().length > 0;
                </>
               )
             }
-        <!-- </Masonry> -->
+        </Masonry>
 
-        </div>
+        <!-- </div> -->
   </main>
 </Layout>

@@ -59,6 +59,7 @@ body.reading .r-view {
   display: inline-block;
 }
 
+/* 
 :where([data-astro-image]) {
   object-fit: var(--fit);
   object-position: var(--pos);
@@ -68,7 +69,7 @@ body.reading .r-view {
 }
 :where([data-astro-image="constrained"]) {
   max-width: 100%;
-}
+} */
 
 body.reading {
   color: black;

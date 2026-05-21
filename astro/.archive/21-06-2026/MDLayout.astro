@@ -1,0 +1,101 @@
+---
+import { Masonry } from 'astro-masonry';
+import Layout from "../layouts/Layout.astro";
+import Image from 'astro/components/Image.astro';
+const { frontmatter } = Astro.props;
+
+const slotContent = await Astro.slots.render('default');
+// const hasContent = slotContent.trim().length > 0;
+---
+
+<Layout title={frontmatter.title} lang={frontmatter.lang}>
+  <main>
+    <div class="grid">
+
+    <!-- <Masonry
+      breakpointCols={{
+        default: 3,
+        700: 2,
+        500: 1,
+
+      }}
+      debug= {false}
+          > -->
+            <!-- {
+              hasContent && ( -->
+
+          <!-- md body mandatory -->
+          <div class="md-body">
+            { frontmatter.title !== "index" && (
+            <!-- not mandatory -->
+            <div class="path">
+              {
+                frontmatter.sectionTitle && (
+                  <div class="sectiontitle">
+                    <h1>{frontmatter.sectionTitle}</h1>
+                  </div>
+                  <span class="seperator">></span>
+                )
+              }
+              <!-- mandatory -->
+              {
+                frontmatter.title !== "index" && (
+                  <div class="pagetitle">
+                    <h1>{frontmatter.title}</h1>
+                  </div>
+                )
+              }
+            </div>
+            )}
+
+            <slot />
+
+        </div>
+
+                      <!-- ) -->
+              <!-- } -->
+
+
+             <!-- build gallery if it exists -->
+            {
+              frontmatter.gallery && (
+                  <>
+                  {frontmatter.gallery.map((item: any, index: number) => {
+                    if (!item?.image) return null;
+
+                    return (
+                      <div class="gallery-wrap">
+
+                        {/* <Image src={item.image} alt={item.alt || ""} format="webp">
+                          <button class="expand"></button>
+                        </Image> */}
+
+                        <Image 
+                        src={item.image} 
+                        alt={item.alt || ""} 
+                        format="webp" 
+                        layout='constrained'   
+                        loading={index < 2 ? "eager" : "lazy"}
+                        inferSize
+                        decoding="async">
+                          <button class="expand"></button>
+                        </Image>
+
+                        
+
+                        {/* <img src={item.image}
+                          alt={item.alt || ""}
+                          loading="lazy" />
+                        <button class="expand"></button> */}
+                      </div>
+                    );
+
+                  })}
+               </>
+              )
+            }
+        <!-- </Masonry> -->
+
+        </div>
+  </main>
+</Layout>
