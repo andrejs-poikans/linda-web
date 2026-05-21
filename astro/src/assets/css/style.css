@@ -14,18 +14,6 @@
   src: url("/fonts/FD_Garamondt/Garamondt-Regular.woff") format("woff");
 }
 
-/* highlight tool */
-::-moz-selection {
-  /* Code for Firefox */
-  background: lavender;
-  color: coral;
-}
-
-::selection {
-  background: lavender;
-  color: coral;
-}
-
 body {
   --primary-font: "EB Garamond Variable", serif;
   --sec-font: "Garamondt", serif;
@@ -34,17 +22,42 @@ body {
   font-weight: 400;
   font-style: normal;
   --p-width: 200px;
+
   --background: lavender;
   --base: white;
-  --body: #ff3855;
-  --highlight: #0070b8;
+  /* --body: #ff3855; */
+  --body: #0070b8;
+
+  --highlight: #688f86ff;
   --sec-highlight: #ad6f69;
-  --third-highlight: wheat;
-  --fourth-highlight: #db5a6b;
+  /* --third-highlight: wheat; */
+  --third-highlight: #f5cecb; /* --fourth-highlight: #db5a6b; */
+  --fourth-highlight: #243329ff;
   --paragraph: #1a1110;
+
+  --stormy-teal: #32646bff;
+  --olive-wood: #80724cff;
+  --dark-cyan: #4d8688ff;
+  --jungle-teal: #688f86ff;
+  --charcoal-brown: #243329ff;
+
   background-color: var(--background);
   color: var(--body);
   --sml-pad: 10px;
+
+  --desktop-max-width: 1440px;
+}
+
+/* highlight tool */
+::-moz-selection {
+  /* Code for Firefox */
+  background: lavender;
+  color: var(--paragraph);
+}
+
+::selection {
+  background: lavender;
+  color: var(--paragraph);
 }
 
 .r-view {
@@ -59,6 +72,10 @@ body.reading .r-view {
   display: inline-block;
 }
 
+body.reading .gallery-controls button,
+body.reading .modal-close-button {
+  color: var(--third-highlight);
+}
 /* 
 :where([data-astro-image]) {
   object-fit: var(--fit);
@@ -152,7 +169,8 @@ header {
   position: relative;
   margin-left: auto;
   width: 100%;
-  background-color: var(--fourth-highlight);
+  background-color: none;
+  border: 1px solid var(--highlight);
 }
 
 .bookmark {
@@ -164,7 +182,8 @@ header {
 }
 
 .bookmark svg {
-  fill: #763e39;
+  fill: var(--highlight);
+  /* fill: #763e39; */
   height: 250px;
   width: auto;
 }
@@ -197,6 +216,100 @@ body:has(.handle:hover) .nav-list {
 .dot {
   cursor: pointer;
   height: 100%;
+}
+
+.group-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.gallery-thumb {
+  border: none;
+  background: transparent;
+  padding: 0;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  margin-bottom: var(--sml-pad);
+}
+
+.gallery-thumb img,
+.gallery-thumb picture {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 99;
+  width: 100dvw;
+  height: 100lvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+  width: 90%;
+  max-width: calc(var(--desktop-max-width) + var(--desktop-max-width) / 4);
+}
+
+.modal-image-wrap {
+  width: 100%;
+  max-height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-image-wrap img {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+  padding: var(--sml-pad);
+}
+
+.gallery-controls {
+  font-family: var(--sec-font);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3em;
+}
+
+.gallery-controls button,
+.modal-close-button {
+  background: transparent;
+  color: var(--body);
+  padding: var(--sml-pad);
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.modal-close-button {
+  font-family: var(--sec-font);
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: auto;
+  height: auto;
+  color: var(--body);
+  font-size: 1em;
+}
+
+.gallery-counter {
+  color: var(--body);
 }
 
 .dot-figure {
@@ -376,15 +489,50 @@ footer {
   body:has(.md-body:hover) .gallery-wrap img {
     filter: blur(0);
   }
-  .menu {
+  /* .menu {
     background-color: var(--background);
-  }
+  } */
 
   body .handle {
     display: none;
   }
 
-  .grid {
+  /* .grid {
     grid-template-columns: repeat(1, 1fr);
+  } */
+
+  /* gallery */
+  .modal-overlay {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .modal-content {
+    height: 100%;
+    width: 100%;
+  }
+
+  .img-container {
+    touch-action: none;
+    pointer-events: none;
+  }
+
+  .modal-content img {
+    max-width: 100%;
+    max-height: 100%;
+    padding: 0;
+  }
+
+  .gallery-controls {
+    bottom: var(--sml-pad);
+    left: 50%;
+    transform: translateX(-50%);
+    position: fixed;
+    display: flex;
+  }
+
+  .gallery-controls button,
+  .modal-close-button,
+  .gallery-counter {
+    color: var(--third-highlight);
   }
 }

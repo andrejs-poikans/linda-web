@@ -2,7 +2,9 @@
 import { Masonry } from 'astro-masonry';
 import Layout from "../layouts/Layout.astro";
 import Picture from 'astro/components/Picture.astro';
+import Gallery from '../components/Gallery.jsx';
 const { frontmatter } = Astro.props;
+const galleryItems = frontmatter.gallery?.filter((item: any) => item?.image) ?? [];
 
 ---
 
@@ -48,41 +50,37 @@ const { frontmatter } = Astro.props;
 
              <!-- build gallery if it exists -->
             {
-              frontmatter.gallery && (
+              galleryItems.length > 0 && (
                   <>
-                  {frontmatter.gallery.map((item: any, index: number) => {
-                    if (!item?.image) return null;
+                      {galleryItems.map((item: any, index: number) => (
+                        <button
+                          type="button"
+                          class="gallery-thumb"
+                          data-gallery-id="page-gallery"
+                          data-gallery-index={index}
+                          aria-label={`Open image ${index + 1} of ${galleryItems.length}`}
+                        >
+                          <Picture
+                            src={item.image}
+                            alt={item.alt || ""}
+                            format="webp"
+                            layout="constrained"
+                            fallbackFormat="jpg"
+                            quality={80}
+                            loading={index < 2 ? "eager" : "lazy"}
+                            inferSize={true}
+                            decoding="async"
+                            sizes="(max-width: 700px) 100vw, 33vw"
+                          />
+                        </button>
+                      ))}
 
-                    return (
-                      <div class="gallery-wrap">
-
-                        <Picture 
-                        src={item.image} 
-                        alt={item.alt || ""} 
-                        format="webp"
-                        layout="constrained"
-                        fallbackFormat="jpg"
-                        quality={80}
-                        loading={index < 2 ? "eager" : "lazy"}
-                        inferSize={true}
-                        decoding="async"
-                        preload="webp"
-                        placeholder="blurred"
-                        includeSourceFormat={false}
-                        fadeInTransition={{
-                          delay: "0.5s",
-                          duration: "0.5s",
-                          timingFunction: "linear",
-                        }}>
-                        </Picture>
-
-                      
-                        {/* <button class="expand"></button> */}
-                      </div>
-                    );
-
-                  })}
-               </>
+                    <Gallery
+                      items={galleryItems}
+                      galleryId="page-gallery"
+                      client:load
+                    />
+                  </>
               )
             }
         </Masonry>
