@@ -26,26 +26,29 @@ body {
   --background: lavender;
   --base: white;
   /* --body: #ff3855; */
-  --body: #0070b8;
+  /* --body: #0070b8; */
+  /* --body: #0c5078; */
+  --body: #15156a;
 
-  --highlight: #688f86ff;
-  --sec-highlight: #ad6f69;
+  /* --highlight: #688f86ff; */
+  /* --highlight: #15156a; */
+  --highlight: #15156a;
+  /* --sec-highlight: #ad6f69; */
+  --sec-highlight: #80724cff;
   /* --third-highlight: wheat; */
-  --third-highlight: #f5cecb; /* --fourth-highlight: #db5a6b; */
+  /* --third-highlight: #f5cecb;  */
+  --third-highlight: #e8ece8; /* --fourth-highlight: #db5a6b; */
   --fourth-highlight: #243329ff;
   --paragraph: #1a1110;
-
-  --stormy-teal: #32646bff;
-  --olive-wood: #80724cff;
-  --dark-cyan: #4d8688ff;
-  --jungle-teal: #688f86ff;
-  --charcoal-brown: #243329ff;
 
   background-color: var(--background);
   color: var(--body);
   --sml-pad: 10px;
 
-  --desktop-max-width: 1440px;
+  /* --desktop-max-width: 1440px;
+  max-width: var(--desktop-max-width);
+  margin-left: auto;
+  margin-right: auto; */
 }
 
 /* highlight tool */
@@ -75,6 +78,11 @@ body.reading .r-view {
 body.reading .gallery-controls button,
 body.reading .modal-close-button {
   color: var(--third-highlight);
+}
+
+body.reading .menu {
+  border: none;
+  /* display: inline-block; */
 }
 /* 
 :where([data-astro-image]) {
@@ -159,6 +167,14 @@ header {
   max-width: 500px;
   position: relative;
 }
+/* header {
+  position: fixed;
+  top: var(--sml-pad);
+  left: var(--sml-pad);
+
+  padding: var(--sml-pad);
+  max-width: 500px;
+} */
 
 .menu {
   min-height: 300px;
@@ -170,7 +186,8 @@ header {
   margin-left: auto;
   width: 100%;
   background-color: none;
-  border: 1px solid var(--highlight);
+  /* border: 1px solid var(--highlight); */
+  /* border: 1px solid var(--sec-highlight); */
 }
 
 .bookmark {
@@ -182,7 +199,7 @@ header {
 }
 
 .bookmark svg {
-  fill: var(--highlight);
+  fill: var(--sec-highlight);
   /* fill: #763e39; */
   height: 250px;
   width: auto;
@@ -206,7 +223,7 @@ body:has(.handle:hover) .nav-list {
 
 .handle {
   display: flex;
-  background-color: var(--highlight);
+  background-color: var(--sec-highlight);
   width: 10px;
   align-self: stretch;
   align-content: center;
@@ -214,7 +231,7 @@ body:has(.handle:hover) .nav-list {
 }
 
 .dot {
-  cursor: pointer;
+  /* cursor: pointer; */
   height: 100%;
 }
 
@@ -534,5 +551,12 @@ footer {
   .modal-close-button,
   .gallery-counter {
     color: var(--third-highlight);
+  }
+
+  body.reading {
+    color: black;
+    font-size: 1.25em;
+    line-height: 1.8;
+    letter-spacing: 0.1em;
   }
 }
