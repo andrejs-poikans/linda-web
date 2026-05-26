@@ -185,9 +185,10 @@ header {
   position: relative;
   margin-left: auto;
   width: 100%;
-  background-color: none;
+  /* background-color: none; */
+  /* background-color: var(--background); */
   /* border: 1px solid var(--highlight); */
-  /* border: 1px solid var(--sec-highlight); */
+  /* border: 3px solid var(--sec-highlight); */
 }
 
 .bookmark {
@@ -414,7 +415,7 @@ body:has(.handle:hover) .nav-list {
 main {
   display: grid;
   padding: var(--sml-pad);
-  max-width: 1200px;
+  /* max-width: 1200px; */
 }
 
 .path {
