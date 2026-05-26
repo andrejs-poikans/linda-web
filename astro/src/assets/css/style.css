@@ -162,19 +162,19 @@ button {
 }
 
 /* header */
-header {
+/* header {
   padding: var(--sml-pad);
   max-width: 500px;
   position: relative;
-}
-/* header {
+} */
+header {
   position: fixed;
   top: var(--sml-pad);
   left: var(--sml-pad);
 
   padding: var(--sml-pad);
   max-width: 500px;
-} */
+}
 
 .menu {
   min-height: 300px;
@@ -188,6 +188,7 @@ header {
   background-color: none;
   /* border: 1px solid var(--highlight); */
   /* border: 1px solid var(--sec-highlight); */
+  /* border-bottom: solid 3px var(--third-highlight); */
 }
 
 .bookmark {
@@ -414,7 +415,8 @@ body:has(.handle:hover) .nav-list {
 main {
   display: grid;
   padding: var(--sml-pad);
-  max-width: 1200px;
+  /* max-width: 600px; */
+  margin-left: 500px;
 }
 
 .path {
