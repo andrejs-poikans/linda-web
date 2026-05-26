@@ -167,6 +167,14 @@ header {
   max-width: 500px;
   position: relative;
 }
+
+main a {
+  text-decoration: underline;
+}
+
+main a:hover {
+  text-decoration: none;
+}
 /* header {
   position: fixed;
   top: var(--sml-pad);
