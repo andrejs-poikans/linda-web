@@ -1,7 +1,7 @@
 ---
 layout: /src/layouts/MDLayout.astro
 lang: en
-sectionTitle: Books
+sectionTitle: books
 title: poems
 ---
 Linda Gabarajeva. Kosmoss ir virs bēniņiem, Liels un mazs, 2024 [link](<>)
