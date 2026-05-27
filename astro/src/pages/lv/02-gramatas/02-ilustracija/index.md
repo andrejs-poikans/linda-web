@@ -1,7 +1,7 @@
 ---
 layout: /src/layouts/MDLayout.astro
 lang: lv
-sectionTitle: Grāmatas
+sectionTitle: grāmatas
 title: ilustrācija
 gallery:
   - image: /images/h-t-o-1-pazemiiba.jpg
