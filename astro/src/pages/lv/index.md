@@ -1,7 +1,7 @@
 ---
 layout: /src/layouts/MDLayout.astro
 lang: lv
-title: mājas
+title: ziņas
 gallery: []
 ---
 # jaunumi
