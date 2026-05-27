@@ -6,7 +6,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
 const name = "Linda Mence";
-const defaultLang = "en";
+const defaultLang = "lv";
 
 // fonts
 // eb garamond
@@ -22,24 +22,15 @@ import "@fontsource-variable/eb-garamond/wght-italic.css";
     <meta name="generator" content={Astro.generator} />
 
     <!-- SEO -->
-    <title>{title !== "index" ? `${name}: ${title}` : name}</title>
-    <meta
-      name="meta-title"
-      content={title !== "index" ? `${name}: ${title}` : name}
-    />
-    <meta
-      name="description"
-      content={title !== "index" ? `${name}: ${title}` : name}
-    />
+    <title>{title !== "index" ? `${title}` : name}</title>
+    <meta name="meta-title" content={title !== "index" ? `${title}` : name} />
+    <meta name="description" content={title !== "index" ? `${title}` : name} />
     <link rel="canonical" href={Astro.url.href} />
 
-    <meta
-      property="og:title"
-      content={title !== "index" ? `${name}: ${title}` : name}
-    />
+    <meta property="og:title" content={title !== "index" ? `${title}` : name} />
     <meta
       property="og:description"
-      content={title !== "index" ? `${name}: ${title}` : name}
+      content={title !== "index" ? `${title}` : name}
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url.href} />

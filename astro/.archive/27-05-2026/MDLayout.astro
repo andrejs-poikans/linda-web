@@ -6,9 +6,6 @@ import Gallery from '../components/Gallery.jsx';
 const { frontmatter } = Astro.props;
 const galleryItems = frontmatter.gallery?.filter((item: any) => item?.image) ?? [];
 
-const slotContent = await Astro.slots.render('default');
-const hasBodyText = slotContent.trim().length > 0;
-
 ---
 
 <Layout title={frontmatter.sectionTitle ? `${frontmatter.sectionTitle}: ${frontmatter.title}` : `${frontmatter.title}`} lang={frontmatter.lang}>
@@ -25,23 +22,25 @@ const hasBodyText = slotContent.trim().length > 0;
           >
 
           <!-- md body mandatory -->
-        { hasBodyText && (
+        { frontmatter.title !== "index" && (
         <div class="md-container"> 
-              { frontmatter.title !== "index" && (
-              <div class="path">
-                {
-                  frontmatter.sectionTitle && (
-                    <div class="sectiontitle">
-                      <h1>{frontmatter.sectionTitle}</h1>
-                    </div>
-                    <span class="seperator">></span>
-                  )
-                }
-                <div class="pagetitle">
-                  <h1>{frontmatter.title}</h1>
-                </div>
-                </div>
-                )}
+            <div class="path">
+              {
+                frontmatter.sectionTitle && (
+                  <div class="sectiontitle">
+                    <h1>{frontmatter.sectionTitle}</h1>
+                  </div>
+                  <span class="seperator">></span>
+                )
+              }
+              {
+                frontmatter.title !== "index" && (
+                  <div class="pagetitle">
+                    <h1>{frontmatter.title}</h1>
+                  </div>
+                )
+              }
+            </div>
             <div class="md-body">
                 <slot />
             </div>
