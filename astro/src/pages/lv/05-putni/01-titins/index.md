@@ -23,9 +23,7 @@ gallery:
 ## Paradumi:
 
 1. Reizēm tītiņš medī kukaiņus lidojumā
-2. Tītiņam patīk apmesties vecos dārzos un [lapu koku ](https://lv.wikipedia.org/wiki/Lapu_koki)parkos, kur aug koki ar kuplām un biezām lapotnēm.
-
-~~knābis nav piemērots nopietnai kalšanai~~
+2. Tītiņam patīk apmesties vecos dārzos un [lapu koku ](https://lv.wikipedia.org/wiki/Lapu_koki)parkos, kur aug koki ar kuplām un biezām lapotnēm. ~~knābis nav piemērots nopietnai kalšanai~~
 
 ### Dziesma:
 
