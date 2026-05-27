@@ -31,6 +31,6 @@ gallery:
 
 > tiu tiu tiu tiu
 
-(Tītiņš)
+(***Tītiņš***)
 
 ![titins-2](/images/titins-2.jpg "Tītiņa tuvplāns")
