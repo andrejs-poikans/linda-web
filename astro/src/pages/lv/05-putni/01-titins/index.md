@@ -11,6 +11,8 @@ gallery:
 
 **Tītiņš** jeb grozgalvis (*Jynx torquilla*) ir maza auguma dzilnu dzimtas (*Picidae*) putnu suga.
 
+## Dzīvesvieta:
+
 * *Jynx torquilla torquilla* — sastopams lielākajā daļā [Eiropas](https://lv.wikipedia.org/wiki/Eiropa);
 
   (*Linnaeus, 1758*)
@@ -18,16 +20,14 @@ gallery:
 
   (*Hesse, 1911*)
 
-### Paradumi:
+## Paradumi:
 
 1. Reizēm tītiņš medī kukaiņus lidojumā
-2. Tītiņam patīk apmesties vecos dārzos un 
-
-   [lapu koku](https://lv.wikipedia.org/wiki/Lapu_koki)
-
-    parkos, kur aug koki ar kuplām un biezām lapotnēm.
+2. Tītiņam patīk apmesties vecos dārzos un [lapu koku ](https://lv.wikipedia.org/wiki/Lapu_koki)parkos, kur aug koki ar kuplām un biezām lapotnēm.
 
 ~~knābis nav piemērots nopietnai kalšanai~~
+
+### Dziesma:
 
 > tiu tiu tiu tiu
 
