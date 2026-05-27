@@ -11,7 +11,7 @@ gallery:
 
 **Tītiņš** jeb grozgalvis (*Jynx torquilla*) ir maza auguma dzilnu dzimtas (*Picidae*) putnu suga.
 
-## Dzīvesvieta:
+## Klasifikācija:
 
 * *Jynx torquilla torquilla* — sastopams lielākajā daļā [Eiropas](https://lv.wikipedia.org/wiki/Eiropa);
 
