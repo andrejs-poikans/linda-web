@@ -1,7 +1,7 @@
 ---
 layout: /src/layouts/MDLayout.astro
 lang: lv
-sectionTitle: Grāmatas
+sectionTitle: grāmatas
 title: dzejoļi
 ---
 Linda Gabarajeva. Kosmoss ir virs bēniņiem, Liels un mazs, 2024 [skatīt](<>)
