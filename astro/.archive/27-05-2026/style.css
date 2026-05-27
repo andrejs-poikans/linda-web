@@ -15,45 +15,55 @@
 }
 
 body {
-  /* foonts */
   --primary-font: "EB Garamond Variable", serif;
   --sec-font: "Garamondt", serif;
   font-family: var(--primary-font);
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+  --p-width: 200px;
 
-  /* original colors */
   --background: lavender;
   --base: white;
+  /* --body: #ff3855; */
+  /* --body: #0070b8; */
+  /* --body: #0c5078; */
   --body: #15156a;
-  --sec-highlight: #80724cff;
-  --third-highlight: #e8ece8;
-  --paragraph: #1a1110;
 
-  /* reading mode colors */
-  --reading-body: black;
-  --reading-highlight: green;
+  /* --highlight: #688f86ff; */
+  /* --highlight: #15156a; */
+  --highlight: #15156a;
+  /* --sec-highlight: #ad6f69; */
+  --sec-highlight: #80724cff;
+  /* --third-highlight: wheat; */
+  /* --third-highlight: #f5cecb;  */
+  --third-highlight: #e8ece8; /* --fourth-highlight: #db5a6b; */
+  --fourth-highlight: #243329ff;
+  --paragraph: #1a1110;
 
   background-color: var(--background);
   color: var(--body);
-
-  /* paddings */
   --sml-pad: 10px;
   --text-pad: 0.7em;
   --large-text-pad: 1.4em;
   --line-height: 1.4em;
+
+  /* --desktop-max-width: 1440px;
+  max-width: var(--desktop-max-width);
+  margin-left: auto;
+  margin-right: auto; */
+  /* padding: 1em; */
 }
 
 /* highlight tool */
 ::-moz-selection {
   /* Code for Firefox */
-  background: var(--background);
+  background: lavender;
   color: var(--paragraph);
 }
 
 ::selection {
-  background: var(--background);
+  background: lavender;
   color: var(--paragraph);
 }
 
@@ -61,36 +71,28 @@ body {
   display: none;
 }
 
-/* canvas */
-.canvas {
-  background-color: var(--base);
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -2;
-  height: 100vh;
-  width: 100vw;
-}
-
 /* ************** ************** ************** */
 /* reading view */
 /* ************** ************** ************** */
 
 body.reading {
-  color: var(--reading-body);
+  color: black;
   font-size: 1.5em;
   line-height: 1.8em;
   letter-spacing: 0.1em;
 }
 
-body.reading a,
+body.reading a {
+  color: green;
+}
+
 body.reading button {
-  color: var(--reading-highlight);
+  color: green;
 }
 
 body.reading .lang-sw a {
-  color: var(--reading-highlight);
-  border: 1px solid var(--reading-body);
+  color: green;
+  border: 1px solid black;
 }
 
 body.reading h1::first-letter {
@@ -125,44 +127,22 @@ body.reading .menu {
   border: none;
 }
 
-body.reading .md-body h1 {
-  font-size: 2em;
-  margin-top: var(--text-pad);
-  margin-bottom: var(--large-text-pad);
+/* canvas */
+.canvas {
+  background-color: var(--base);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  height: 100vh;
+  width: 100vw;
 }
 
-body.reading .md-body h2 {
-  font-size: 1.6em;
-  font-style: normal;
-  margin-top: var(--large-text-pad);
-  margin-bottom: var(--text-pad);
-}
-
-body.reading .md-body h3 {
-  font-size: 1.4em;
-  color: var(--reading-body);
-  margin-top: var(--large-text-pad);
-  margin-bottom: var(--text-pad);
-  border-bottom: none;
-}
-
-body.reading .md-body del {
-  color: var(--reading-body);
-  text-decoration: line-through;
-}
-
-body.reading .md-body ul,
-body.reading .md-body ol {
-  padding-inline-start: 2em;
-}
-
-/* ************** ************** ************** */
-/* text styling */
-/* ************** ************** ************** */
+/* general text style */
 
 a {
   cursor: pointer;
-  color: var(--body);
+  color: var(--highlight);
 }
 
 h1::first-letter {
@@ -175,7 +155,14 @@ h1::first-letter {
 
 button {
   cursor: pointer;
-  color: var(--body);
+  color: var(--highlight);
+}
+
+/* header */
+header {
+  padding: var(--sml-pad);
+  max-width: 500px;
+  position: relative;
 }
 
 .md-body a {
@@ -198,11 +185,13 @@ button {
 
 .md-body h1 {
   font-size: 2em;
+  /* margin-top: var(--text-pad); */
   margin-bottom: var(--text-pad);
 }
 
 .md-body h2 {
   font-size: 1.6em;
+  /* margin-top: var(--text-pad); */
   font-style: italic;
   margin-bottom: var(--text-pad);
   border-bottom: solid 1px var(--third-highlight);
@@ -211,8 +200,12 @@ button {
 .md-body h3 {
   font-size: 1.4em;
   color: var(--sec-highlight);
+  /* margin-top: var(--text-pad); */
   margin-bottom: var(--text-pad);
+  /* font-weight: bold; */
   border-bottom: solid 1px var(--third-highlight);
+  /* text-decoration: underline;
+  text-decoration-style: dotted; */
 }
 
 .md-body p {
@@ -240,14 +233,14 @@ button {
   padding-inline-start: 1em;
 }
 
-/* ************** ************** ************** */
-/* header */
-/* ************** ************** ************** */
-header {
+/* header {
+  position: fixed;
+  top: var(--sml-pad);
+  left: var(--sml-pad);
+
   padding: var(--sml-pad);
   max-width: 500px;
-  position: relative;
-}
+} */
 
 .menu {
   min-height: 300px;
@@ -258,7 +251,55 @@ header {
   position: relative;
   margin-left: auto;
   width: 100%;
+  /* background-color: none; */
+  /* background-color: var(--background); */
+  /* border: 1px solid var(--highlight); */
+  /* border: 3px solid var(--sec-highlight); */
 }
+
+/* .bookmark {
+  position: absolute;
+  display: none;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.bookmark svg {
+  fill: var(--sec-highlight);
+  height: 250px;
+  width: auto;
+}
+
+.bookmark.active {
+  display: flex;
+}
+
+.nav-list.none {
+  display: none;
+} */
+
+/* body:has(.handle:hover) .bookmark {
+  display: flex;
+}
+
+body:has(.handle:hover) .nav-list {
+  display: none;
+} */
+
+/* .handle {
+  display: flex;
+  background-color: var(--sec-highlight);
+  width: 10px;
+  align-self: stretch;
+  align-content: center;
+  align-items: center;
+} */
+
+/* .dot {
+  cursor: pointer;
+  height: 100%;
+} */
 
 .group-images {
   display: flex;
@@ -430,7 +471,7 @@ header {
 
 .lang-sw a {
   color: var(--sec-highlight);
-  border: 1px solid var(--body);
+  border: 1px solid var(--highlight);
   border-radius: 50%;
   padding: 0.25em;
 }
@@ -525,46 +566,25 @@ footer {
 
 @media screen and (max-width: 500px),
   screen and (max-height: 500px) and (orientation: landscape) {
-  body:has(.md-container:hover) .gallery-thumb img {
+  body:has(.md-container:hover) .gallery-wrap img {
     filter: blur(0);
-  }
-
-  body.reading .nav-list li:nth-child(1n) {
-    grid-column-start: 3;
-  }
-  body.reading .nav-list li:nth-child(2n) {
-    grid-column-start: 2;
-  }
-  body.reading .nav-list li:nth-child(3n) {
-    grid-column-start: 4;
-  }
-  body.reading .nav-list li:nth-child(4n) {
-    grid-column-start: 1;
-  }
-  body.reading .nav-list li:nth-child(5n) {
-    grid-column-start: 5;
-  }
-  body.reading .nav-list li:nth-child(6n) {
-    grid-column-start: 1;
-  }
-
-  body.reading .nav-list li:nth-child(7n) {
-    grid-column-start: 5;
-  }
-
-  body.reading .nav-list li:nth-child(8n) {
-    grid-column-start: 2;
-    text-align: left;
-    justify-self: start;
-  }
-
-  .menu {
-    overflow-x: scroll;
   }
 
   body {
     padding: var(--sml-pad);
   }
+
+  /* .menu {
+    background-color: var(--background);
+  } */
+
+  body .handle {
+    display: none;
+  }
+
+  /* .grid {
+    grid-template-columns: repeat(1, 1fr);
+  } */
 
   /* gallery */
   .modal-overlay {
@@ -602,19 +622,9 @@ footer {
   }
 
   body.reading {
-    color: var(--reading-body);
+    color: black;
     font-size: 1.25em;
     line-height: 1.8;
     letter-spacing: 0.1em;
-  }
-
-  footer {
-    background-color: var(--base);
-    right: calc(var(--sml-pad) * 2);
-    bottom: calc(var(--sml-pad) * 2);
-  }
-
-  main {
-    padding: 0;
   }
 }
