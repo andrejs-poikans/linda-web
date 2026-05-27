@@ -4,4 +4,3 @@ lang: lv
 title: index
 gallery: []
 ---
-# jaunumi
