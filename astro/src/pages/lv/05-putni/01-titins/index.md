@@ -2,7 +2,7 @@
 layout: /src/layouts/MDLayout.astro
 lang: lv
 sectionTitle: putni
-title: Tītīņš
+title: tītīņš
 gallery:
   - image: /images/titins.jpg
     alt: titins
