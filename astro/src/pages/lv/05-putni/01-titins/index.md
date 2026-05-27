@@ -27,7 +27,7 @@ gallery:
 
     parkos, kur aug koki ar kuplām un biezām lapotnēm.
 
-knābis nav piemērots nopietnai kalšanai
+~~knābis nav piemērots nopietnai kalšanai~~
 
 > tiu tiu tiu tiu
 
