@@ -1,7 +1,7 @@
 ---
 layout: /src/layouts/MDLayout.astro
 lang: lv
-sectionTitle: Grāmatas
+sectionTitle: grāmatas
 title: tulkošana
 ---
 \-
