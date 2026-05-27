@@ -1,7 +1,7 @@
 ---
 layout: /src/layouts/MDLayout.astro
 lang: en
-sectionTitle: Books
+sectionTitle: books
 title: illustration
 gallery:
   - image: /images/h-t-o-1-pazemiiba.jpg
