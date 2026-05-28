@@ -3,5 +3,15 @@
 ---
 
 <script>
-  window.location.replace("./lv");
+  const hash = window.location.hash;
+
+  if (hash.includes("invite_token") || hash.includes("recovery_token")) {
+    // normalize hash format so Decap accepts it
+    const cleanHash = hash.replace(/^#\/?/, "#");
+
+    window.location.replace("/admin/" + cleanHash);
+  } else if (window.location.pathname === "/") {
+    // your normal language redirect
+    window.location.replace("/lv/");
+  }
 </script>
