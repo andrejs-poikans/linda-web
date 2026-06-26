@@ -1,7 +1,7 @@
 ---
 layout: /src/layouts/MDLayout.astro
 lang: lv
-title: u.c.
+title: attēli
 ---
 
 Ligzda Rafaelam
