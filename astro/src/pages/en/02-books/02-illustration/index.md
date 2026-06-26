@@ -17,6 +17,6 @@ gallery:
   - image: /images/h-t-o-12-kautriiba.jpg
     alt: H-T-O-12-Kautriiba
 ---
-Gotholds Efraims Lesings. Nātans Gudrais. Tulk. Jānis Rainis, Rīga: Zinātne, 2024 [link](https://satori.lv/book/natans-gudrais)
+Hildegarde no Bingenas. *Tikumu ordenis.* Transl. Mārtiņš Laizāns, Rīga: Neputns, 2025 link
 
-Hildegarde no Bingenas. Tikumu ordenis. Tulk. Mārtiņš Laizāns, Rīga: Neputns, 2025 [link](https://www.neputns.lv/collections/neputna-gramatas/products/tikumu-ordenis)
+Gotholds Efraims Lesings. *Nātans Gudrais.* Transl. Jānis Rainis, Rīga: Zinātne, 2024 [link](https://satori.lv/book/natans-gudrais)
