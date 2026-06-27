@@ -16,6 +16,14 @@ gallery:
     alt: H-T-O-11-Nezinaams
   - image: /images/h-t-o-12-kautriiba.jpg
     alt: H-T-O-12-Kautriiba
+  - image: /images/photo-2024-12-11-13-39-54-2-.jpg
+    alt: Nātans
+  - image: /images/photo-2024-12-11-13-39-54.jpg
+    alt: Nātans2
+  - image: /images/photo-2024-12-11-13-39-52.jpg
+    alt: Nātans3
+  - image: /images/photo-2024-12-11-13-39-51-2-.jpg
+    alt: Nātans4
 ---
 Hildegarde no Bingenas. *Tikumu ordenis.* Transl. Mārtiņš Laizāns. Neputns, 2025 [link](https://www.neputns.lv/products/tikumu-ordenis)
 
