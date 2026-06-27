@@ -25,6 +25,6 @@ gallery:
   - image: /images/photo-2024-12-11-13-39-51-2-.jpg
     alt: Nātans4
 ---
-Hildegarde no Bingenas. *Tikumu ordenis.* Tulk. Mārtiņš Laizāns. Neputns, 2025 skatīt
+Hildegarde no Bingenas. *Tikumu ordenis.* Tulk. Mārtiņš Laizāns. Neputns, 2025 [skatīt](https://www.neputns.lv/products/tikumu-ordenis?srsltid=AfmBOopK6TgSsWKd4yTJw8DHfyDRQ0j1tCVPrfvcWIaH0zcn4uNkY9TW)
 
 Gotholds Efraims Lesings. *Nātans Gudrais.* Tulk. Jānis Rainis. Zinātne, 2024 [skatīt](<>)
