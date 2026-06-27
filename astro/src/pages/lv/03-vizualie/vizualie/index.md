@@ -1,7 +1,7 @@
 ---
 layout: /src/layouts/MDLayout.astro
 lang: lv
-title: attēli
+title: vizuālie darbi
 ---
 
 Ligzda Rafaelam
