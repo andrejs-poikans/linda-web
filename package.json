@@ -1,0 +1,18 @@
+{
+  "name": "linda-web-image-compress",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "compress-images": "node scripts/compress-images.js",
+    "build": "npm --prefix astro run build"
+  },
+  "dependencies": {
+    "fs-extra": "^11.1.1",
+    "sharp": "^0.32.4",
+    "imagemin": "^8.0.1",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-webp": "^7.0.0",
+    "imagemin-svgo": "^10.0.1"
+  }
+}
