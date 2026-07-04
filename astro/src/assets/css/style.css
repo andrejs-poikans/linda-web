@@ -254,7 +254,7 @@ header {
   display: flex;
   flex-direction: row;
   font-weight: 500;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   position: relative;
   margin-left: auto;
   width: 100%;
