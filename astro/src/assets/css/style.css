@@ -39,10 +39,18 @@ body {
   color: var(--body);
 
   /* paddings */
-  --sml-pad: 10px;
-  --text-pad: 0.7em;
-  --large-text-pad: 1.4em;
+  /* --sml-pad: 10px; */
   --line-height: 1.4em;
+
+  --text-pad: calc(var(--line-height)/2);
+  --large-text-pad: var(--line-height);
+  --sml-pad: calc(var(--line-height)/2);
+  --large-pad: calc(var(--line-height) * 2);
+
+  padding-left: var(--large-pad);
+  padding-right: var(--large-pad);
+  padding-bottom: var(--large-pad);
+  padding-top: var(--large-pad);
 }
 
 /* highlight tool */
@@ -250,8 +258,10 @@ button {
 /* header */
 /* ************** ************** ************** */
 header {
-  padding: var(--sml-pad);
-  max-width: 500px;
+  /* padding: var(--sml-pad); */
+  padding-bottom: var(--large-pad);
+  /* max-width: 500px; */
+  max-width: 33.33%;
   position: relative;
 }
 
@@ -458,7 +468,7 @@ header {
 /* main */
 main {
   display: grid;
-  padding: var(--sml-pad);
+  /* padding: var(--sml-pad); */
   /* max-width: 1200px; */
 }
 
@@ -472,12 +482,25 @@ main {
   margin-bottom: var(--sml-pad);
 }
 
+/* .md-container {
+  padding: var(--sml-pad);
+  text-align: left;
+  min-height: 600px;
+  border: solid 3px var(--background);
+  margin-bottom: var(--sml-pad);
+} */
+
 .md-container {
   padding: var(--sml-pad);
   text-align: left;
   min-height: 600px;
   border: solid 3px var(--background);
   margin-bottom: var(--sml-pad);
+}
+
+.blank-spot {
+  min-width: 100%;
+  min-height: 600px;
 }
 
 .md-container p img {
@@ -555,6 +578,11 @@ footer {
 
 @media screen and (max-width: 500px),
   screen and (max-height: 500px) and (orientation: landscape) {
+  header {
+    max-width: 100%;
+    padding-bottom: 0;
+  }
+
   body:has(.md-container:hover) .gallery-thumb img {
     filter: blur(0);
   }

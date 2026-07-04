@@ -68,7 +68,7 @@ export default function Gallery({ items = [], galleryId = "page-gallery" }) {
           onClick={close}
           aria-label="Close gallery"
         >
-          {/* X */}×
+          ×
         </button>
 
         <div class="modal-image-wrap" onClick={close}>
