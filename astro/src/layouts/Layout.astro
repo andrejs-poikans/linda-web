@@ -66,21 +66,6 @@ import "@fontsource-variable/eb-garamond/wght-italic.css";
       type="font/woff"
       crossorigin
     />
-
-    <!-- cms redirect -->
-    <!-- <script>
-      const hash = window.location.hash;
-
-      if (hash.includes("invite_token") || hash.includes("recovery_token")) {
-        // normalize hash format so Decap accepts it
-        const cleanHash = hash.replace(/^#\/?/, "#");
-
-        window.location.replace("/admin/" + cleanHash);
-      } else if (window.location.pathname === "/") {
-        // your normal language redirect
-        window.location.replace("/lv/");
-      }
-    </script> -->
   </head>
   <body>
     <Header lang={lang ? lang : defaultLang} />
