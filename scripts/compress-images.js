@@ -1,11 +1,21 @@
 #!/usr/bin/env node
 const fs = require("fs-extra");
 const path = require("path");
-const sharp = require("sharp");
 
 const IMAGES_DIR = path.resolve(__dirname, "..", "astro", "public", "images");
 const TARGET_MAX_DIM = 2048;
 const TARGET_MAX_BYTES = 200 * 1024; // 200 KB
+
+let Jimp;
+try {
+  Jimp = require("jimp");
+} catch (err) {
+  Jimp = null;
+  console.warn(
+    "jimp is not available; skipping image compression.",
+    err.message,
+  );
+}
 
 function isImageFile(fn) {
   const ext = path.extname(fn).toLowerCase();
@@ -44,71 +54,41 @@ async function getFiles(dir) {
 async function compressFile(file) {
   const ext = path.extname(file).toLowerCase();
   const before = (await fs.stat(file)).size;
-  let buffer;
 
   if (ext === ".svg") {
-    // keep SVG as-is (could run svgo if desired)
     return { file, before, after: before };
   }
 
-  // use sharp to read and optionally resize
-  const image = sharp(file, { limitInputPixels: false });
-  const meta = await image.metadata();
-  let img = image;
-  if (meta.width > TARGET_MAX_DIM || meta.height > TARGET_MAX_DIM) {
-    const resizeOpts = {};
-    if (meta.width >= meta.height) resizeOpts.width = TARGET_MAX_DIM;
-    else resizeOpts.height = TARGET_MAX_DIM;
-    img = image.resize(resizeOpts);
+  if (!Jimp) {
+    return { file, before, after: before, skipped: true };
   }
 
-  // output to buffer in same format (or webp for png if needed)
-  if (ext === ".jpg" || ext === ".jpeg") {
-    let quality = 82;
-    let outBuf = await img
-      .jpeg({ quality, progressive: true, chromaSubsampling: "4:2:0" })
-      .toBuffer();
-    // iterative quality reduction if needed (allow lower floor to reach target)
-    while (outBuf.length > TARGET_MAX_BYTES && quality >= 48) {
-      quality -= 6;
-      outBuf = await img
-        .jpeg({ quality, progressive: true, chromaSubsampling: "4:2:0" })
-        .toBuffer();
+  try {
+    const image = await Jimp.read(file);
+    if (
+      image.getWidth() > TARGET_MAX_DIM ||
+      image.getHeight() > TARGET_MAX_DIM
+    ) {
+      image.scaleToFit(TARGET_MAX_DIM, TARGET_MAX_DIM);
     }
-    // final attempt: if still too big, force a low-quality write
-    if (outBuf.length > TARGET_MAX_BYTES) {
-      quality = 40;
-      outBuf = await img
-        .jpeg({ quality, progressive: true, chromaSubsampling: "4:2:0" })
-        .toBuffer();
+
+    if (ext === ".jpg" || ext === ".jpeg") {
+      image.quality(82);
+      await image.writeAsync(file);
+    } else if (ext === ".png") {
+      await image.writeAsync(file);
+    } else if (ext === ".webp") {
+      await image.writeAsync(file);
+    } else {
+      await image.writeAsync(file);
     }
-    await fs.writeFile(file, outBuf);
-    return { file, before, after: outBuf.length };
-  }
 
-  if (ext === ".png") {
-    // produce a PNG then run pngquant
-    const pngBuf = await img.png({ compressionLevel: 9 }).toBuffer();
-    await fs.writeFile(file, pngBuf);
-    return { file, before, after: pngBuf.length };
+    const after = (await fs.stat(file)).size;
+    return { file, before, after };
+  } catch (err) {
+    console.warn("Skipping compression for", file, err.message);
+    return { file, before, after: before, skipped: true };
   }
-
-  if (ext === ".webp") {
-    let quality = 84;
-    let outBuf = await img.webp({ quality }).toBuffer();
-    while (outBuf.length > TARGET_MAX_BYTES && quality >= 60) {
-      quality -= 6;
-      outBuf = await img.webp({ quality }).toBuffer();
-    }
-    await fs.writeFile(file, outBuf);
-    return { file, before, after: outBuf.length };
-  }
-
-  // fallback: try to write buffer as original and then optimize with mozjpeg
-  const fallbackBuf = await img.toBuffer();
-  await fs.writeFile(file, fallbackBuf);
-  const afterStat = (await fs.stat(file)).size;
-  return { file, before, after: afterStat };
 }
 
 async function main() {
@@ -134,8 +114,10 @@ async function main() {
   }
 
   console.log("\nReport: path | before bytes | after bytes");
-  for (const r of report)
-    console.log(r.file + " | " + r.before + " | " + r.after);
+  for (const r of report) {
+    const status = r.skipped ? "skipped" : "ok";
+    console.log(r.file + " | " + r.before + " | " + r.after + " | " + status);
+  }
   console.log("\nImage compression complete. No backup folders are kept.");
 }
 
