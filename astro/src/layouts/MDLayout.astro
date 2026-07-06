@@ -14,59 +14,98 @@ const hasBodyText = slotContent.trim().length > 0;
 <Layout title={frontmatter.sectionTitle ? `${frontmatter.sectionTitle}: ${frontmatter.title}` : `${frontmatter.title}`} lang={frontmatter.lang}>
 
   <main>
+
+    <div class="poster-md">
+     <!-- md body mandatory -->
+    { hasBodyText && (
+    <div class="md-container"> 
+          { frontmatter.title !== "index" && (
+          <div class="path">
+            {
+              frontmatter.sectionTitle && (
+                <div class="sectiontitle">
+                  <h1>{frontmatter.sectionTitle}</h1>
+                </div>
+                <span class="seperator">></span>
+              )
+            }
+            <div class="pagetitle">
+              <h1>{frontmatter.title}</h1>
+            </div>
+            </div>
+            )}
+        <div class="md-body">
+            <slot />
+        </div>
+        <script type="module" >
+          document.querySelectorAll('.md-body a').forEach((anchor) => {
+            anchor.setAttribute('target', '_blank');
+            anchor.setAttribute('rel', 'noopener noreferrer');
+          });
+        </script>
+    </div>
+    )}
+
+    {
+    galleryItems.length > 0 && 
+      (
+        <>
+            {[galleryItems[0]].map((item: any, index: number) => (
+              <div class = "img-wrap first-img">
+              <button
+                type="button"
+                class="gallery-thumb"
+                data-gallery-id="page-gallery"
+                data-gallery-index={index}
+                aria-label={`Open image ${index + 1} of ${galleryItems.length}`}
+              >
+                <Picture
+                  src={item.image}
+                  alt={item.alt || ""}
+                  format="webp"
+                  layout="constrained"
+                  fallbackFormat="jpg"
+                  quality={80}
+                  loading={index < 2 ? "eager" : "lazy"}
+                  inferSize={true}
+                  decoding="async"
+                  sizes="(max-width: 700px) 100vw, 33vw"
+                />                         
+              </button>
+              {item.alt && <span class="img-alt-text">{item.alt}</span>}
+              </div>
+            ))}
+
+          <Gallery
+            items={galleryItems}
+            galleryId="page-gallery"
+            client:load
+          />
+        </>
+      )
+    }
+    </div>
+                        
     <Masonry
       breakpointCols={{
         default: 3,
-        700: 2,
         500: 1,
 
       }}
       debug= {false}
           >
-        <!-- <div class="blank-spot"><canvas></canvas></div> -->
-          <!-- md body mandatory -->
-        { hasBodyText && (
-        <div class="md-container"> 
-              { frontmatter.title !== "index" && (
-              <div class="path">
-                {
-                  frontmatter.sectionTitle && (
-                    <div class="sectiontitle">
-                      <h1>{frontmatter.sectionTitle}</h1>
-                    </div>
-                    <span class="seperator">></span>
-                  )
-                }
-                <div class="pagetitle">
-                  <h1>{frontmatter.title}</h1>
-                </div>
-                </div>
-                )}
-            <div class="md-body">
-                <slot />
-            </div>
-            <script type="module" >
-              document.querySelectorAll('.md-body a').forEach((anchor) => {
-                anchor.setAttribute('target', '_blank');
-                anchor.setAttribute('rel', 'noopener noreferrer');
-              });
-            </script>
-        </div>
-        )}
-
-        <!-- <div class="blank-spot"><canvas></canvas></div> -->
 
              <!-- build gallery if it exists -->
             {
               galleryItems.length > 0 && (
                   <>
-                      {galleryItems.map((item: any, index: number) => (
+                      {galleryItems.slice(1).map((item: any, index: number) => (
                         <div class = "img-wrap">
                         <button
                           type="button"
                           class="gallery-thumb"
                           data-gallery-id="page-gallery"
-                          data-gallery-index={index}
+                          data-gallery-index={index + 1}
                           aria-label={`Open image ${index + 1} of ${galleryItems.length}`}
                         >
                           <Picture
@@ -85,12 +124,6 @@ const hasBodyText = slotContent.trim().length > 0;
                         {item.alt && <span class="img-alt-text">{item.alt}</span>}
                         </div>
                       ))}
-
-                    <Gallery
-                      items={galleryItems}
-                      galleryId="page-gallery"
-                      client:load
-                    />
                   </>
               )
             }

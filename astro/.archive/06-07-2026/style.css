@@ -43,9 +43,9 @@ body {
   --line-height: 1.4em;
 
   --text-pad: calc(var(--line-height)/2);
-  --large-text-pad: calc(var(--line-height));
+  --large-text-pad: var(--line-height);
   --sml-pad: calc(var(--line-height)/2);
-  --large-pad: calc(var(--line-height));
+  --large-pad: calc(var(--line-height) * 2);
 
   padding-left: var(--large-pad);
   padding-right: var(--large-pad);
@@ -170,14 +170,6 @@ body.reading .img-alt-text {
   color: var(--reading-body);
 }
 
-body.reading .md-body {
-  padding-right: var(--sml-pad);
-}
-
-body.reading .md-container {
-  padding: var(--sml-pad);
-}
-
 /* ************** ************** ************** */
 /* text styling */
 /* ************** ************** ************** */
@@ -198,11 +190,6 @@ h1::first-letter {
 button {
   cursor: pointer;
   color: var(--body);
-}
-
-.md-body {
-  padding-left: var(--sml-pad);
-  padding-right: calc(9 * var(--large-text-pad));
 }
 
 .md-body a {
@@ -272,8 +259,7 @@ button {
 /* ************** ************** ************** */
 header {
   /* padding: var(--sml-pad); */
-  padding-bottom: var(--sml-pad);
-  /* padding-bottom: var(--large-pad); */
+  padding-bottom: var(--large-pad);
   /* max-width: 500px; */
   max-width: 33.33%;
   position: relative;
@@ -417,7 +403,7 @@ header {
 .nav-list li {
   width: fit-content;
   text-align: center;
-  margin-bottom: var(--sml-pad);
+  margin-bottom: 1em;
   justify-self: start;
 }
 
@@ -488,13 +474,12 @@ main {
 
 .path {
   padding: var(--sml-pad);
-  padding-bottom: var(--large-text-pad);
   align-items: center;
   display: flex;
   flex-direction: row;
   gap: var(--sml-pad);
   border-bottom: solid 3px var(--background);
-  margin-bottom: var(--large-text-pad);
+  margin-bottom: var(--sml-pad);
 }
 
 /* .md-container {
@@ -506,8 +491,7 @@ main {
 } */
 
 .md-container {
-  /* padding: var(--sml-pad); */
-  padding: var(--large-pad);
+  padding: var(--sml-pad);
   text-align: left;
   min-height: 600px;
   border: solid 3px var(--background);
@@ -586,8 +570,8 @@ body:has(.img-wrap:hover) .gallery-thumb img {
 
 footer {
   position: fixed;
-  bottom: var(--large-pad);
-  right: var(--large-pad);
+  bottom: var(--sml-pad);
+  right: var(--sml-pad);
 }
 
 .reading-toggle {
@@ -603,15 +587,6 @@ footer {
   header {
     max-width: 100%;
     padding-bottom: 0;
-  }
-
-  .poster-md {
-    display: inline-block;
-  }
-
-  .md-body {
-    padding-right: 0;
-    padding-left: 0;
   }
 
   /* body:has(.md-container:hover) .gallery-thumb img {
@@ -699,8 +674,8 @@ footer {
 
   footer {
     background-color: var(--base);
-    right: var(--sml-pad);
-    bottom: var(--large-pad);
+    right: calc(var(--sml-pad) * 2);
+    bottom: calc(var(--sml-pad) * 2);
   }
 
   main {
