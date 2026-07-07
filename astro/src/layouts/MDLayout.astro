@@ -1,7 +1,7 @@
 ---
 import { Masonry } from 'astro-masonry';
 import Layout from "../layouts/Layout.astro";
-import Picture from 'astro/components/Picture.astro';
+// import Picture from 'astro/components/Picture.astro';
 import Gallery from '../components/Gallery.jsx';
 const { frontmatter } = Astro.props;
 const galleryItems = frontmatter.gallery?.filter((item: any) => item?.image) ?? [];
@@ -59,7 +59,8 @@ const hasBodyText = slotContent.trim().length > 0;
                 data-gallery-index={index}
                 aria-label={`Open image ${index + 1} of ${galleryItems.length}`}
               >
-                <Picture
+              <img src={item.image} alt={item.alt || ""} loading={index < 2 ? "eager" : "lazy"} />
+                {/* <Picture
                   src={item.image}
                   alt={item.alt || ""}
                   formats={["avif", "webp"]}
@@ -67,11 +68,10 @@ const hasBodyText = slotContent.trim().length > 0;
                   fallbackFormat="webp"
                   quality={80}
                   loading={index < 2 ? "eager" : "lazy"}
-                  // inferSize={true}
-                  width="50" height="50"
+                  inferSize={true}
                   decoding="async"
                   sizes="(max-width: 700px) 100vw, 33vw"
-                />                         
+                />                          */}
               </button>
               {item.alt && <span class="img-alt-text">{item.alt}</span>}
               </div>
@@ -109,7 +109,8 @@ const hasBodyText = slotContent.trim().length > 0;
                           data-gallery-index={index + 1}
                           aria-label={`Open image ${index + 1} of ${galleryItems.length}`}
                         >
-                          <Picture
+                                        <img src={item.image} alt={item.alt || ""} loading={index < 2 ? "eager" : "lazy"} />
+                          {/* <Picture
                             src={item.image}
                             alt={item.alt || ""}
                             formats={["avif", "webp"]}
@@ -117,11 +118,10 @@ const hasBodyText = slotContent.trim().length > 0;
                             fallbackFormat="webp"
                             quality={80}
                             loading={index < 2 ? "eager" : "lazy"}
-                            // inferSize={true}
-                            width="50" height="50"
+                            inferSize={true}
                             decoding="async"
                             sizes="(max-width: 700px) 100vw, 33vw"
-                          />                         
+                          />                          */}
                         </button>
                         {item.alt && <span class="img-alt-text">{item.alt}</span>}
                         </div>
