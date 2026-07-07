@@ -62,9 +62,9 @@ const hasBodyText = slotContent.trim().length > 0;
                 <Picture
                   src={item.image}
                   alt={item.alt || ""}
-                  format="webp"
+                  formats={["avif", "webp"]}
                   layout="constrained"
-                  fallbackFormat="jpg"
+                  fallbackFormat="webp"
                   quality={80}
                   loading={index < 2 ? "eager" : "lazy"}
                   inferSize={true}
@@ -111,9 +111,9 @@ const hasBodyText = slotContent.trim().length > 0;
                           <Picture
                             src={item.image}
                             alt={item.alt || ""}
-                            format="webp"
+                            formats={["avif", "webp"]}
                             layout="constrained"
-                            fallbackFormat="jpg"
+                            fallbackFormat="webp"
                             quality={80}
                             loading={index < 2 ? "eager" : "lazy"}
                             inferSize={true}
