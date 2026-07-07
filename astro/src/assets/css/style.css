@@ -404,7 +404,7 @@ header {
 }
 
 /* loading gallery logic */
-.gallery-loading {
+/* .gallery-loading {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -447,7 +447,7 @@ header {
   50% {
     opacity: 1;
   }
-}
+} */
 
 .nav-list {
   padding: var(--sml-pad);
