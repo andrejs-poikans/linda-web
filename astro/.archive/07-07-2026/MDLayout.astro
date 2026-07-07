@@ -85,12 +85,6 @@ const hasBodyText = slotContent.trim().length > 0;
       )
     }
     </div>
-
-    {galleryItems.length > 0 && (
-      <div id="masonry-loading" class="gallery-loading" aria-live="polite" aria-label="Loading gallery">
-        <div class="gallery-loading__spinner"></div>
-      </div>
-    )}
                         
     <Masonry
       breakpointCols={{
@@ -134,49 +128,5 @@ const hasBodyText = slotContent.trim().length > 0;
               )
             }
         </Masonry>
-
-    <script type="module">
-      const loader = document.getElementById('masonry-loading');
-
-      if (loader && loader.dataset.loaded !== 'true') {
-        const images = Array.from(document.querySelectorAll('.gallery-thumb img'));
-
-        const finish = () => {
-          window.setTimeout(() => {
-            loader.classList.add('is-hidden');
-            loader.dataset.loaded = 'true';
-          }, 120);
-        };
-
-        if (images.length === 0) {
-          finish();
-        } else {
-          let loadedCount = 0;
-          const onImageReady = () => {
-            loadedCount += 1;
-            if (loadedCount >= images.length) {
-              finish();
-            }
-          };
-
-          images.forEach((img) => {
-            if (img.complete) {
-              onImageReady();
-              return;
-            }
-
-            img.addEventListener('load', onImageReady, { once: true });
-            img.addEventListener('error', onImageReady, { once: true });
-          });
-
-          window.addEventListener('load', finish, { once: true });
-          window.setTimeout(() => {
-            if (!loader.classList.contains('is-hidden')) {
-              finish();
-            }
-          }, 2500);
-        }
-      }
-    </script>
   </main>
 </Layout>
