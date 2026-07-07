@@ -3,8 +3,11 @@ const fs = require("fs-extra");
 const path = require("path");
 
 const IMAGES_DIR = path.resolve(__dirname, "..", "astro", "public", "images");
-const TARGET_MAX_DIM = 2048;
-const TARGET_MAX_BYTES = 200 * 1024; // 200 KB
+const TARGET_MAX_DIM = 3072;
+const TARGET_MAX_BYTES = 300 * 1024; // 300 KB
+const JPG_QUALITY = 90; // higher = less compression
+const WEBP_QUALITY = 88; // target quality for generated WebP
+const CONVERT_TO_WEBP = true; // convert all raster images to .webp
 
 let Jimp;
 try {
@@ -72,19 +75,37 @@ async function compressFile(file) {
       image.scaleToFit(TARGET_MAX_DIM, TARGET_MAX_DIM);
     }
 
-    if (ext === ".jpg" || ext === ".jpeg") {
-      image.quality(82);
-      await image.writeAsync(file);
-    } else if (ext === ".png") {
-      await image.writeAsync(file);
-    } else if (ext === ".webp") {
-      await image.writeAsync(file);
-    } else {
-      await image.writeAsync(file);
+    // Skip already-optimized WebP files to avoid re-processing.
+    if (ext === ".webp") {
+      return { file, before, after: before, skipped: true };
     }
 
-    const after = (await fs.stat(file)).size;
-    return { file, before, after };
+    // Apply a higher JPEG quality (less compression) before conversion.
+    image.quality(JPG_QUALITY);
+
+    if (CONVERT_TO_WEBP) {
+      // Convert everything to WebP and replace the original file.
+      const outFile = file.replace(/\.[^.]+$/, ".webp");
+      try {
+        const buffer = await image.getBufferAsync(Jimp.MIME_WEBP);
+        await fs.writeFile(outFile, buffer);
+        if (outFile !== file) {
+          await fs.remove(file);
+        }
+        const after = (await fs.stat(outFile)).size;
+        return { file: outFile, before, after };
+      } catch (err) {
+        console.warn("Failed to write webp for", file, err.message);
+        // fallback: write original format
+        await image.writeAsync(file);
+        const after = (await fs.stat(file)).size;
+        return { file, before, after };
+      }
+    } else {
+      await image.writeAsync(file);
+      const after = (await fs.stat(file)).size;
+      return { file, before, after };
+    }
   } catch (err) {
     console.warn("Skipping compression for", file, err.message);
     return { file, before, after: before, skipped: true };
