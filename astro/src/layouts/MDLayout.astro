@@ -66,7 +66,6 @@ const hasBodyText = slotContent.trim().length > 0;
                   layout="constrained"
                   fallbackFormat="jpg"
                   quality={80}
-                  // loading={index < 2 ? "eager" : "lazy"}
                   loading="lazy"
                   inferSize={true}
                   decoding="async"
@@ -92,90 +91,72 @@ const hasBodyText = slotContent.trim().length > 0;
         <div class="gallery-loading__spinner"></div>
       </div>
     )}
-                        
-    <Masonry
-      breakpointCols={{
-        default: 3,
-        500: 1,
 
-      }}
-      debug= {false}
-          >
+    <div id="masonry-wrapper" class="gallery-masonry-shell is-loading" aria-hidden="true">
+      <Masonry
+        breakpointCols={{
+          default: 3,
+          500: 1,
+        }}
+        debug= {false}
+            >
 
-             <!-- build gallery if it exists -->
-            {
-              galleryItems.length > 0 && (
-                  <>
-                      {galleryItems.slice(1).map((item: any, index: number) => (
-                        <div class = "img-wrap">
-                        <button
-                          type="button"
-                          class="gallery-thumb"
-                          data-gallery-id="page-gallery"
-                          data-gallery-index={index + 1}
-                          aria-label={`Open image ${index + 1} of ${galleryItems.length}`}
-                        >
-                          <Picture
-                            src={item.image}
-                            alt={item.alt || ""}
-                            format="webp"
-                            layout="constrained"
-                            fallbackFormat="jpg"
-                            quality={80}
-                            // loading={index < 2 ? "eager" : "lazy"}
-                            inferSize={true}
-                            decoding="async"
-                            sizes="(max-width: 700px) 100vw, 33vw"
-                          />                         
-                        </button>
-                        {item.alt && <span class="img-alt-text">{item.alt}</span>}
-                        </div>
-                      ))}
-                  </>
-              )
-            }
-        </Masonry>
+           <!-- build gallery if it exists -->
+          {
+            galleryItems.length > 0 && (
+                <>
+                    {galleryItems.slice(1).map((item: any, index: number) => (
+                      <div class = "img-wrap">
+                      <button
+                        type="button"
+                        class="gallery-thumb"
+                        data-gallery-id="page-gallery"
+                        data-gallery-index={index + 1}
+                        aria-label={`Open image ${index + 1} of ${galleryItems.length}`}
+                      >
+                        <Picture
+                          src={item.image}
+                          alt={item.alt || ""}
+                          format="webp"
+                          layout="constrained"
+                          fallbackFormat="jpg"
+                          quality={80}
+                          loading={index < 3 ? "eager" : "lazy"}
+                          inferSize={true}
+                          decoding="async"
+                          sizes="(max-width: 700px) 100vw, 33vw"
+                        />                         
+                      </button>
+                      {item.alt && <span class="img-alt-text">{item.alt}</span>}
+                      </div>
+                    ))}
+                </>
+            )
+          }
+      </Masonry>
+    </div>
 
     <script type="module">
       const loader = document.getElementById('masonry-loading');
+      const masonryWrapper = document.getElementById('masonry-wrapper');
 
-      if (loader && loader.dataset.loaded !== 'true') {
-        const images = Array.from(document.querySelectorAll('.gallery-thumb img'));
-
-        const finish = () => {
-          window.setTimeout(() => {
-            loader.classList.add('is-hidden');
-            loader.dataset.loaded = 'true';
-          }, 120);
+      if (loader && masonryWrapper && loader.dataset.loaded !== 'true') {
+        const revealMasonry = () => {
+          window.requestAnimationFrame(() => {
+            window.setTimeout(() => {
+              loader.classList.add('is-hidden');
+              masonryWrapper.classList.remove('is-loading');
+              masonryWrapper.classList.add('is-ready');
+              masonryWrapper.setAttribute('aria-hidden', 'false');
+              loader.dataset.loaded = 'true';
+            }, 120);
+          });
         };
 
-        if (images.length === 0) {
-          finish();
+        if (document.readyState === 'complete') {
+          revealMasonry();
         } else {
-          let loadedCount = 0;
-          const onImageReady = () => {
-            loadedCount += 1;
-            if (loadedCount >= images.length) {
-              finish();
-            }
-          };
-
-          images.forEach((img) => {
-            if (img.complete) {
-              onImageReady();
-              return;
-            }
-
-            img.addEventListener('load', onImageReady, { once: true });
-            img.addEventListener('error', onImageReady, { once: true });
-          });
-
-          window.addEventListener('load', finish, { once: true });
-          window.setTimeout(() => {
-            if (!loader.classList.contains('is-hidden')) {
-              finish();
-            }
-          }, 2500);
+          window.addEventListener('load', revealMasonry, { once: true });
         }
       }
     </script>

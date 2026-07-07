@@ -419,6 +419,17 @@ header {
   pointer-events: none;
 }
 
+.gallery-masonry-shell {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.gallery-masonry-shell.is-ready {
+  visibility: visible;
+  opacity: 1;
+}
+
 .gallery-loading__spinner {
   width: var(--line-height);
   height: var(--line-height);
