@@ -8,6 +8,11 @@ import Footer from "../components/Footer.astro";
 const name = "Linda Mence";
 const defaultLang = "lv";
 
+const bio_eng =
+  "I’m a poet writing for adults and children, I do a lot of drawing, translate poetry and prose from English to Latvian and work as an editor in “Punctum” literary magazine. I’m currently based in Riga and Brussels.";
+const bio_lv =
+  "Es esmu dzejniece, es rakstu pieaugušajiem un bērniem, daudz zīmēju un reizēm ilustrēju, tulkoju dzeju un prozu no angļu uz latviešu valodu un esmu redaktore žurnālā “Punctum”. Dzīvoju Rīgā un Briselē.";
+
 // fonts
 // eb garamond
 import "@fontsource-variable/eb-garamond/wght.css";
@@ -24,16 +29,23 @@ import "@fontsource-variable/eb-garamond/wght-italic.css";
     <!-- SEO -->
     <title>{title !== "index" ? `${title}` : name}</title>
     <meta name="meta-title" content={title !== "index" ? `${title}` : name} />
-    <meta name="description" content={title !== "index" ? `${title}` : name} />
-    <link rel="canonical" href={Astro.url.href} />
+    <!-- <meta name="description" content={title !== "index" ? `${title}` : name} /> -->
+    <meta name="description" content={lang === "lv" ? bio_lv : bio_eng} />
+    <link
+      rel="canonical"
+      href={`https://lindamence.com${Astro.url.pathname}`}
+    />
 
     <meta property="og:title" content={title !== "index" ? `${title}` : name} />
     <meta
       property="og:description"
-      content={title !== "index" ? `${title}` : name}
+      content={lang === "lv" ? bio_lv : bio_eng}
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url.href} />
+    <meta
+      property="og:url"
+      content={`https://lindamence.com${Astro.url.pathname}`}
+    />
 
     <!-- favicon placement -->
     <link
