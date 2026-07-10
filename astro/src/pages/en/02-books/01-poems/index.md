@@ -13,6 +13,6 @@ gallery:
 ---
 Linda Mence. *acij ir maza kabatiņa.* Neputns, 2026 [link](https://www.neputns.lv/products/acij-ir-maza-kabatina)
 
-Linda Gabarajeva. *Kosmoss ir virs bēniņiem.* Liels un mazs, 2024 [link](<>)
+Linda Gabarajeva. *Kosmoss ir virs bēniņiem.* Liels un mazs, 2024 [link](https://lielsmazs.lv/products/kosmoss-ir-virs-beniniem)
 
-Linda Gabarajeva. *Apļi.* Neputns, 2023 [link](<>)
+Linda Gabarajeva. *Apļi.* Neputns, 2023 [link](https://www.neputns.lv/products/apli?srsltid=AfmBOoqt-zGq_bB4le6NZnK2G7UACAvh2TSJR_yaZtyE3B-BEwy3qSCg)
