@@ -21,8 +21,6 @@ I work with watercolor and ink pen on paper, but crafts are starting to sneak in
 
 
 
-
-
 email: linda.mencce@gmail.com
 
 instagram: linda.mencce
