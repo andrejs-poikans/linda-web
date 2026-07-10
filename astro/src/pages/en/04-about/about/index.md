@@ -9,6 +9,8 @@ gallery:
 ---
 I'm a poet writing for adults and children, I do a lot of drawing, translate poetry and prose from English to Latvian and work as an editor in "Punctum" literary magazine. I'm currently based in Riga and Brussels.
 
+
+
 In poetry, I tend to notice my interests and preoccupations after the writing is done, looking back at the text as a proof of what has already happened. 
 
 Judging from my recent work, I am interested in the clash and weaving together of aesthetics and ethics, the beauty and violence of history and myth, the storage of personal and cultural memory. Sound and rhythm is central to my writing, and certain images tend to reappear: in my first collection it was the egg and other circular objects and concepts. In my recent work, the image of a vessel pops up frequently. Wounded trees, rivers of various liquids and eyes are also present. And multiple winds. 
