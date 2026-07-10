@@ -27,4 +27,4 @@ gallery:
 ---
 Hildegarde no Bingenas. *Tikumu ordenis.* Tulk. Mārtiņš Laizāns. Neputns, 2025 [skatīt](https://www.neputns.lv/products/tikumu-ordenis?srsltid=AfmBOopK6TgSsWKd4yTJw8DHfyDRQ0j1tCVPrfvcWIaH0zcn4uNkY9TW)
 
-Gotholds Efraims Lesings. *Nātans Gudrais.* Tulk. Jānis Rainis. Zinātne, 2024 [skatīt](<>)
+Gotholds Efraims Lesings. *Nātans Gudrais.* Tulk. Jānis Rainis. Zinātne, 2024 [skatīt](https://satori.lv/book/natans-gudrais)
