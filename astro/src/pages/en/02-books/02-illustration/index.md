@@ -5,25 +5,25 @@ sectionTitle: books
 title: illustration
 gallery:
   - image: /images/h-t-o-1-pazemiiba.jpg
-    alt: Ordo Virtutum. Pazemība
+    alt: Ordo Virtutum. Humility
   - image: /images/h-t-o-3-dievbijiiba.jpg
-    alt: Ordo Virtutum. Dievbijība
+    alt: Ordo Virtutum. Fear of God
   - image: /images/h-t-o-6-ceriiba.jpg
-    alt: Ordo Virtutum. Cerība
+    alt: Ordo Virtutum. Hope
   - image: /images/h-t-o-9-pasaules-nicinaasana.jpg
-    alt: Ordo Virtutum. Pasaules nicināšana
+    alt: "Ordo Virtutum. Contempt of the World "
   - image: /images/h-t-o-11-nezinaams.jpg
-    alt: Ordo Virtutum. Nezināms
+    alt: Ordo Virtutum. Unknown
   - image: /images/h-t-o-12-kautriiba.jpg
-    alt: Ordo Virtutum. Kautrība
+    alt: Ordo Virtutum. Modesty
   - image: /images/photo-2024-12-11-13-39-54-2-.jpg
-    alt: Nātans Gudrais. Zilās liesmas
+    alt: Nātans Gudrais. Blue flames
   - image: /images/photo-2024-12-11-13-39-54.jpg
-    alt: Nātans Gudrais. Plaukstas
+    alt: Nātans Gudrais. Palms
   - image: /images/photo-2024-12-11-13-39-52.jpg
-    alt: Nātans Gudrais. Sārtās liesmas
+    alt: Nātans Gudrais. Red flames
   - image: /images/photo-2024-12-11-13-39-51-2-.jpg
-    alt: Nātans Gudrais. Mezgli
+    alt: Nātans Gudrais. Knots
 ---
 Hildegarde no Bingenas. *Tikumu ordenis.* Transl. Mārtiņš Laizāns. Neputns, 2025 [link](https://www.neputns.lv/products/tikumu-ordenis)
 
