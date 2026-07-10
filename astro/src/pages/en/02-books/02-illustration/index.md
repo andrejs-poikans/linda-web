@@ -5,25 +5,25 @@ sectionTitle: books
 title: illustration
 gallery:
   - image: /images/h-t-o-1-pazemiiba.jpg
-    alt: H-T-O-1-pazemiiba
+    alt: Ordo Virtutum. Pazemība
   - image: /images/h-t-o-3-dievbijiiba.jpg
-    alt: H-T-O-3-Dievbijiiba
+    alt: Ordo Virtutum. Dievbijība
   - image: /images/h-t-o-6-ceriiba.jpg
-    alt: H-T-O-6-Ceriiba
+    alt: Ordo Virtutum. Cerība
   - image: /images/h-t-o-9-pasaules-nicinaasana.jpg
-    alt: H-T-O-9-Pasaules nicinaasana
+    alt: Ordo Virtutum. Pasaules nicināšana
   - image: /images/h-t-o-11-nezinaams.jpg
-    alt: H-T-O-11-Nezinaams
+    alt: Ordo Virtutum. Nezināms
   - image: /images/h-t-o-12-kautriiba.jpg
-    alt: H-T-O-12-Kautriiba
+    alt: Ordo Virtutum. Kautrība
   - image: /images/photo-2024-12-11-13-39-54-2-.jpg
-    alt: Nātans
+    alt: Nātans Gudrais. Zilās liesmas
   - image: /images/photo-2024-12-11-13-39-54.jpg
-    alt: Nātans2
+    alt: Nātans Gudrais. Plaukstas
   - image: /images/photo-2024-12-11-13-39-52.jpg
-    alt: Nātans3
+    alt: Nātans Gudrais. Sārtās liesmas
   - image: /images/photo-2024-12-11-13-39-51-2-.jpg
-    alt: Nātans4
+    alt: Nātans Gudrais. Mezgli
 ---
 Hildegarde no Bingenas. *Tikumu ordenis.* Transl. Mārtiņš Laizāns. Neputns, 2025 [link](https://www.neputns.lv/products/tikumu-ordenis)
 
