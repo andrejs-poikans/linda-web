@@ -5,6 +5,7 @@ import Picture from 'astro/components/Picture.astro';
 import Gallery from '../components/Gallery.jsx';
 const { frontmatter } = Astro.props;
 const galleryItems = frontmatter.gallery?.filter((item: any) => item?.image) ?? [];
+const documentItems = frontmatter.documents?.filter((item: any) => item?.file) ?? [];
 
 const slotContent = await Astro.slots.render('default');
 const hasBodyText = slotContent.trim().length > 0;
@@ -36,6 +37,22 @@ const hasBodyText = slotContent.trim().length > 0;
             )}
         <div class="md-body">
             <slot />
+            
+            {
+              documentItems.length > 0 && 
+                (
+                  <>
+                      {documentItems.map((item: any) => (
+                        <span class="document-item">
+                          <a href={item.file} target="_blank" rel="noopener noreferrer">
+                            {item.label || item.file.split('/').pop()}
+                          </a>
+                        </span>
+                      ))}
+                  </>
+                )
+            }
+
         </div>
         <script type="module" >
           document.querySelectorAll('.md-body a').forEach((anchor) => {
