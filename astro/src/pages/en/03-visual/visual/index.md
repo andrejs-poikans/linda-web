@@ -2,6 +2,15 @@
 layout: /src/layouts/MDLayout.astro
 lang: en
 title: visual
+gallery:
+  - image: /images/img_5580.jpeg
+    alt: "1"
+  - image: /images/img_6430.jpeg
+    alt: "2"
+  - image: /images/img_6434.jpeg
+    alt: "3"
+  - image: /images/img_6436.jpeg
+    alt: "4"
 ---
 
 ## The Garden
