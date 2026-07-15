@@ -3,7 +3,7 @@ layout: /src/layouts/MDLayout.astro
 lang: lv
 title: par
 gallery:
-  - image: /images/fotografēja-ieva-viese.jpg
+  - image: /images/fotografēja-ieva-viese.jpg
     alt: "foto: Ieva Viese "
 documents:
   - file: /documents/blank.pdf
