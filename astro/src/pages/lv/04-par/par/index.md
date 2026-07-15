@@ -6,7 +6,7 @@ gallery:
   - image: /images/fotografēja-ieva-viese.jpg
     alt: "foto: Ieva Viese "
 documents:
-  - file: /documents/blank.pdf
+  - file: /images/blank.pdf
     label: pdf
 ---
 Es esmu dzejniece, rakstu pieaugušajiem un bērniem, zīmēju un reizēm ilustrēju, tulkoju dzeju un prozu no angļu uz latviešu valodu un esmu redaktore žurnālā "Punctum".  Dzīvoju Rīgā un Briselē.
