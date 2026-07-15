@@ -51,6 +51,20 @@ collections:
           - { label: "Image", name: "image", widget: "image" }
           - { label: "Alt Text", name: "alt", widget: "string" }
 
+      - label: "Documents"
+        name: "documents"
+        widget: "list"
+        required: false
+        fields:
+          - label: "File"
+            name: "file"
+            widget: "file"
+            media_folder: "/astro/public/documents"
+            public_folder: "/documents"
+          - label: "Label"
+            name: "label"
+            widget: "string"
+
       - label: "Body"
         name: "body"
         widget: "markdown"
@@ -101,6 +115,20 @@ collections:
         fields:
           - { label: "Image", name: "image", widget: "image" }
           - { label: "Alt Text", name: "alt", widget: "string" }
+
+      - label: "Documents"
+        name: "documents"
+        widget: "list"
+        required: false
+        fields:
+          - label: "File"
+            name: "file"
+            widget: "file"
+            media_folder: "/astro/public/documents"
+            public_folder: "/documents"
+          - label: "Label"
+            name: "label"
+            widget: "string"
 
       - label: "Body"
         name: "body"
